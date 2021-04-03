@@ -4,6 +4,8 @@ Discord RPC mod for Hollow Knight.
 
 Enables various stats such as Maximum Masks, Soul Vessels, Geo, and which room you are in.
 
+Also supports Test of Teamwork mod!
+
 It also provides 2 neat icons! Such as:
 
 - **Large Image**: Which game mode you are in. Once hovered, shows the game mode itself and shows the version of the mod.
