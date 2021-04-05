@@ -15,6 +15,21 @@ namespace HollowKnightDRPC
     {
         public static string GetRoomName(string scene)
         {
+            #region Endings
+            if (scene == "Cinematic_Ending_A")
+                return "Hollow Knight Ending";
+            if (scene == "Cinematic_Ending_B")
+                return "Sealed Siblings Ending";
+            if (scene == "Cinematic_Ending_C")
+                return "Dream No More Ending";
+            if (scene == "Cinematic_Ending_D")
+                return "Embrace The Void Ending";
+            if (scene == "Cinematic_Ending_E")
+                return "Embrace The Void Ending";
+            #endregion
+
+
+
             #region Dirtmouth
             if (scene == "Tutorial_01")
                 return "King's Pass";
