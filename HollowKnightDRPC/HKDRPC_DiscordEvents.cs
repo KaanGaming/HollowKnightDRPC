@@ -24,6 +24,7 @@ namespace HollowKnightDRPC
             GameMode gm = PlayerData.instance.permadeathMode > 0 ? GameMode.SteelSoul : PlayerData.instance.bossRushMode ? GameMode.Godseeker : GameMode.Normal;
 
             int masks = PlayerData.instance.maxHealth;
+            int hp = PlayerData.instance.health;
 
             int soulvessels = PlayerData.instance.MPReserveMax / 33;
 
@@ -36,6 +37,7 @@ namespace HollowKnightDRPC
             switch (gm)
             {
                 case GameMode.Normal:
+                    act.Assets.LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447";
                     act.Assets.LargeImage = "normal";
                     break;
                 case GameMode.SteelSoul:
@@ -53,7 +55,7 @@ namespace HollowKnightDRPC
             if (small.Image != "") act.Assets.SmallImage = small.Image;
             if (small.Text != "") act.Assets.SmallText = small.Text;
 
-            act.State = masks + " Masks - ";
+            act.State = hp + "/" + masks + " Masks - ";
             if (soulvessels > 0) act.State += soulvessels + " Soul Vessels - ";
             act.State += geo + " Geo";
 

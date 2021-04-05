@@ -15,6 +15,7 @@ namespace HollowKnightDRPC
     {
         public static string GetRoomName(string scene)
         {
+            #region Dirtmouth
             if (scene == "Tutorial_01")
                 return "King's Pass";
             if (scene == "Town")
@@ -35,20 +36,17 @@ namespace HollowKnightDRPC
                 return "Dirtmouth - Jiji The Confessor's House";
             if (scene == "Room_Jinn")
                 return "Dirtmouth - Steel Soul Jinn's House";
-            if (scene == "Room_Tram_RG")
-                return "Inside Tram (To FC/RG)";
-            if (scene == "Room_Tram")
-                return "Inside Tram (To Dn/AB/K'sE)";
-            if (scene == "Room_Charm_Shop")
-                return "Forgotten Crossroads - Salubra The Charmlover's Shop";
-            if (scene == "Room_temple")
-                return "Forgotten Crossroads - Black Egg Temple";
+            #endregion
 
-
+            #region Forgotten Crossroads
             if (scene == "Crossroads_01")
                 return "Forgotten Crossroads - Into the Well";
             if (scene == "Crossroads_02")
                 return "Forgotten Crossroads - Outside of Temple";
+            if (scene == "Room_temple")
+                return "Forgotten Crossroads - Black Egg Temple";
+            if (scene == "Room_Charm_Shop")
+                return "Forgotten Crossroads - Salubra The Charmlover's Shop";
             if (scene == "Crossroads_03")
                 return "Forgotten Crossroads";
             if (scene == "Crossroads_04")
@@ -61,6 +59,8 @@ namespace HollowKnightDRPC
                 return "Forgotten Crossroads - Lotsa Gruzzers";
             if (scene == "Crossroads_08")
                 return "Forgotten Crossroads";
+            if (scene == "Room_Tram_RG")
+                return "Inside Tram (To FC/RG)";
             if (scene == "Crossroads_09")
                 return "Forgotten Crossroads - Against the Brooding Mawlek";
             if (scene == "Crossroads_10")
@@ -120,10 +120,10 @@ namespace HollowKnightDRPC
                 {
                     infectedLevel = 1;
                 }
-                if (PlayerData.instance.canSuperDash) infectedLevel = 2;
+                if (PlayerData.instance.hasSuperDash) infectedLevel = 2;
                 if (infectedLevel == 0) return "Forgotten Crossroads - Myla";
-                else if (infectedLevel == 1) return "Forgotten Crossroads - Myla...";
-                else return "Forgotten Crossroads - ...";
+                else if (infectedLevel == 1) return "Forgotten Crossroads - Myla?";
+                else return "Forgotten Crossroads - Husk Miner";
             }
             if (scene == "Crossroads_46")
                 return "Forgotten Crossroads - Tram Station";
@@ -141,9 +141,9 @@ namespace HollowKnightDRPC
                 return "Forgotten Crossroads - Menderbug's House";
             if (scene == "Room_ruinhouse")
                 return "Forgotten Crossroads - Sly Found";
+            #endregion
 
-
-
+            #region Greenpath
             if (scene == "Fungus1_01")
                 return "To Greenpath";
             if (scene == "Fungus1_01b")
@@ -214,6 +214,9 @@ namespace HollowKnightDRPC
                 return "Greenpath - Sheo the Painter";
             if (scene == "Room_Slug_Shrine")
                 return "Greenpath - Lake of Unn";
+            #endregion
+
+            #region Fungal Wastes & Queen's Station
             if (scene == "Deepnest_01")
                 return "Fungal Wastes";
             if (scene == "Fungus2_01")
@@ -276,6 +279,9 @@ namespace HollowKnightDRPC
                 return "Fungal Wastes";
             if (scene == "Fungus2_34")
                 return "Queen's Station - Willoh";
+            #endregion
+
+            #region Fog Canyon
             if (scene == "Fungus3_01")
                 return "Fog Canyon";
             if (scene == "Fungus3_02")
@@ -308,8 +314,9 @@ namespace HollowKnightDRPC
                 return "Teacher's Archives";
             if (scene == "Room_Fungus_Shaman")
                 return "Overgrown Mound";
+            #endregion
 
-
+            #region Howling Cliffs
             if (scene == "Cliffs_01")
                 return "Howling Cliffs";
             if (scene == "Cliffs_02")
@@ -326,8 +333,9 @@ namespace HollowKnightDRPC
                 return "Howling Cliffs - Protective Shell";
             if (scene == "Room_nailmaster")
                 return "Howling Cliffs - Nailmaster Mato";
+            #endregion
 
-
+            #region Crystal Peak
             if (scene == "Mines_01")
                 return "Crystal Peak - Entrance";
             if (scene == "Mines_02")
@@ -384,11 +392,15 @@ namespace HollowKnightDRPC
                 return "Crystal Peak - Deep Focus";
             if (scene == "Mines_37")
                 return "Crystal Peak";
+            #endregion
 
+            #region Ancient Basin
             if (scene == "Abyss_02")
                 return "Ancient Basin";
             if (scene == "Abyss_03")
                 return "Ancient Basin - Tram Station";
+            if (scene == "Room_Tram")
+                return "Inside Tram (To Dn/AB/K'sE)";
             if (scene == "Abyss_04")
                 return "Ancient Basin - Fountain";
             if (scene == "Abyss_05")
@@ -405,6 +417,8 @@ namespace HollowKnightDRPC
                 return "Ancient Basin - Monarch Wings";
             if (scene == "Abyss_22")
                 return "Ancient Basin - Hidden (Stag) Station";
+
+            #region The Abyss
             if (scene == "Abyss_06_Core")
                 return "The Abyss";
             if (scene == "Abyss_08")
@@ -421,7 +435,10 @@ namespace HollowKnightDRPC
                 return "The Abyss";
             if (scene == "Abyss_Lighthouse_room")
                 return "The Abyss - Lighthouse";
+            #endregion
+            #endregion
 
+            #region Resting Grounds
             if (scene == "Crossroads_46b")
                 return "Resting Grounds - Tram Station";
             if (scene == "Crossroads_50")
@@ -452,8 +469,9 @@ namespace HollowKnightDRPC
                 return "Resting Grounds - Elevator To City of Tears";
             if (scene == "Crossroads_49b")
                 return "Resting Grounds";
+            #endregion
 
-
+            #region Kingdom's Edge
             if (scene == "Abyss_03_c")
                 return "Kingdom's Edge - Tram Station";
             if (scene == "Deepnest_East_01")
@@ -494,6 +512,7 @@ namespace HollowKnightDRPC
                 return "Kingdom's Edge";
             if (scene == "Deepnest_East_Hornet")
                 return "Kingdom's Edge - Against Hornet";
+            #region Colosseum of Fools
             if (scene == "GG_Lurker")
                 return "Kingdom's Edge - Pale Lurker";
             if (scene == "Room_Colosseum_01")
@@ -508,11 +527,14 @@ namespace HollowKnightDRPC
                 return "Colosseum of Fools - Trial of the Fool";
             if (scene == "Room_Colosseum_Spectate")
                 return "Colosseum of Fools - Spectate Zone";
+            #endregion
+
             if (scene == "Room_nailmaster_03")
                 return "Kingdom's Edge - Nailmaster Oro";
             if (scene == "Room_Wyrm")
                 return "Kingdom's Edge - Cast-Off Shell";
 
+            #region The Hive
             if (scene == "Hive_01")
                 return "The Hive - Entrance";
             if (scene == "Hive_02")
@@ -525,9 +547,10 @@ namespace HollowKnightDRPC
                 return "The Hive";
             if (scene == "Hive_05")
                 return "The Hive - Against The Hive Knight";
+            #endregion
+            #endregion
 
-
-
+            #region City of Tears
             if (scene == "Abyss_01")
                 return "City of Tears - Fallen Elevator";
             if (scene == "Room_nailsmith")
@@ -611,7 +634,9 @@ namespace HollowKnightDRPC
             if (scene == "Ruins2_Watcher_Room")
                 return "City of Tears - Lurien the Watcher";
 
+            #endregion
 
+            #region Royal Waterways
             if (scene == "GG_Pipeway")
                 return "Royal Waterways - Flukemungas";
             if (scene == "GG_Waterways")
@@ -646,8 +671,9 @@ namespace HollowKnightDRPC
                 return "Royal Waterways";
             if (scene == "Waterways_15")
                 return "Royal Waterways - Dung Defender's Cave";
+            #endregion
 
-
+            #region Deepnest
             if (scene == "Abyss_03_b")
                 return "Deepnest - Tram Station";
             if (scene == "Deepnest_01b")
@@ -710,8 +736,9 @@ namespace HollowKnightDRPC
                 return "Deepnest - Distant Village";
             if (scene == "Deepnest_43")
                 return "Deepnest";
+            #endregion
 
-
+            #region Queen's Gardens
             if (scene == "Fungus1_24")
                 return "Queen's Gardens";
             if (scene == "Fungus3_04")
@@ -748,8 +775,9 @@ namespace HollowKnightDRPC
                 return "Queen's Gardens - White Lady";
             if (scene == "Fungus1_24")
                 return "Queen's Gardens";
+            #endregion
 
-
+            #region White Palace
             if (scene == "White_Palace_01")
                 return "White Palace - Entrance";
             if (scene == "White_Palace_02")
@@ -780,6 +808,7 @@ namespace HollowKnightDRPC
                 return "White Palace";
             if (scene == "White_Palace_16")
                 return "White Palace";
+            #region Path of Pain
             if (scene == "White_Palace_17")
                 return "White Palace - Path of Pain Lever";
             if (scene == "White_Palace_18")
@@ -788,24 +817,28 @@ namespace HollowKnightDRPC
                 return "White Palace - Path of Pain - Second Room";
             if (scene == "White_Palace_20")
                 return "White Palace - Path of Pain - Final Room";
+            #endregion
+            #endregion
 
-
-            if (scene == "Dream_Final")
+            #region Final Boss
+            if (scene == "Dream_Final_Boss")
                 return "Against The Radiance";
             if (scene == "Room_Final_Boss_Atrium")
                 return "Black Egg - Bench";
             if (scene == "Room_Final_Boss_Core")
                 return "Against The Hollow Knight";
+            #endregion
 
-
+            #region Grimm Troupe DLC
             if (scene == "Grimm_Divine")
                 return "Dirtmouth - Divine's Tent";
             if (scene == "Grimm_Main_Tent")
                 return "Dirtmouth - Grimm's Tent";
             if (scene == "Grimm_Nightmare")
                 return "Dirtmouth - Against Nightmare King Grimm";
+            #endregion
 
-
+            #region Dreams
             if (scene == "Dream_01_False_Knight")
                 return "Forgotten Crossroads - Against Failed Champion";
             if (scene == "Dream_02_Mage_Lord")
@@ -833,7 +866,7 @@ namespace HollowKnightDRPC
             if (scene == "Dream_Room_Believer_Shrine")
                 return "Resting Grounds - Inside Shrine of Believers";
 
-
+            #region Godhome
             if (scene == "GG_Atrium")
                 return "Godhome";
             if (scene == "GG_Atrium_Roof")
@@ -856,6 +889,8 @@ namespace HollowKnightDRPC
                 return "Godhome - Unn Sighting";
             if (scene == "GG_Wyrm")
                 return "Godhome - Pale King Sighting";
+            if (scene == "GG_End_Sequence")
+                return "Godhome - Pantheon Ending";
 
 
             #region GG_Bosses
@@ -972,8 +1007,10 @@ namespace HollowKnightDRPC
                 return "Godhome - Against Nosk";
 
             #endregion
+            #endregion
+            #endregion
 
-
+            #region Modded Content
             if (scene == "SF_ToT_ToT_01")
                 return "Test of Teamwork";
             if (scene == "SF_ToT_ToT_02")
@@ -987,6 +1024,7 @@ namespace HollowKnightDRPC
 
             if (RoomNamesHelper.GetFriendlyName(scene) != scene)
                 return RoomNamesHelper.GetFriendlyName(scene);
+            #endregion
 
 
             else return scene;

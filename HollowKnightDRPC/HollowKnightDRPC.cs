@@ -1,5 +1,9 @@
 ﻿using Modding;
 using UnityEngine;
+using System.Net;
+using System.Reflection;
+using System.IO;
+using System.IO.Compression;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +14,7 @@ namespace HollowKnightDRPC
 {
     public partial class HollowKnightDRPC : Mod
     {
-        public HollowKnightDRPC() : base("Hollow Knight Discord RPC")
+        public HollowKnightDRPC() : base("Hollow Knight Discord RPC (CHECK README!)")
         {
             
         }
@@ -29,37 +33,38 @@ namespace HollowKnightDRPC
 
         public override string GetVersion()
         {
-            return "1.0.0 Beta";
+            return "1.1.0 Beta";
         }
 
         public override void Initialize()
         {
             Log("Establishing Discord RPC...");
-            discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
+                discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
 
-            ModHooks.Instance.HeroUpdateHook += Update;
-            ModHooks.Instance.SavegameLoadHook += LoadGame;
-            ModHooks.Instance.SceneChanged += Locate;
+                ModHooks.Instance.HeroUpdateHook += Update;
+                ModHooks.Instance.SavegameLoadHook += LoadGame;
+                ModHooks.Instance.SceneChanged += Locate;
 
-            rpc = discord.GetActivityManager();
+                rpc = discord.GetActivityManager();
 
-            discord.SetLogHook(Discord.LogLevel.Error, (lv, log) =>
-            {
-                Log((int)lv + " - " + log);
-            });
-
-            act = new Activity()
-            {
-                Details = "In Menus",
-                State = "Doing stuff lolz",
-                Assets =
+                discord.SetLogHook(Discord.LogLevel.Error, (lv, log) =>
                 {
-                    LargeImage = "normal",
-                    LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447"
-                }
-            };
+                    Log((int)lv + " - " + log);
+                });
 
-            rpc.UpdateActivity(act, res => { });
+                act = new Activity()
+                {
+                    Details = "In Menus",
+                    State = "Doing stuff lolz",
+                    Assets =
+                    {
+                        LargeImage = "normal",
+                        LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447"
+                    }
+                };
+
+                rpc.UpdateActivity(act, res => { });
+            
 
             ModHooks.Instance.ApplicationQuitHook += GameClosing;
         }
