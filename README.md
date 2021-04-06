@@ -19,13 +19,18 @@ If anything goes wrong, ask in [#modding-help](https://discord.com/channels/2834
 
 ![](https://i.ibb.co/0n08pWj/prev1.png)
 ###### Dirtmouth - Normal save
+---
 ![](https://i.ibb.co/7z2Yr5C/prev2.png)
 ###### Stag Nest - Normal save
+---
 ![](https://i.ibb.co/9rYZJ3K/prev3.png)
 ###### Black Egg Temple - Normal save
+---
 ![](https://i.ibb.co/Z6XXTsF/prev4.png)
 ###### Ancestral Mound - Steel Soul save
+---
 ![](https://i.ibb.co/Zc1FhMG/prev5.png)
 ###### Godhome | Hall of Gods - Godseeker save
+---
 ![](https://i.ibb.co/6txKTkq/prev6.png)
 ###### Small Image Tooltip
