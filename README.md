@@ -1,33 +1,31 @@
 # HollowKnightDRPC
 
-Discord RPC mod for Hollow Knight.
+*This mod adds Discord Presence to your profile! Let people see what are you doing!*
 
-Enables various stats such as Maximum Masks, Soul Vessels, Geo, and which room you are in.
+Mod made by __@KaanGaming#7447__ on Discord.
+If anything goes wrong, ask in [#modding-help](https://discord.com/channels/283467363729408000/462200562620825600) in the Hollow Knight's Discord server.
 
-Also supports Test of Teamwork mod!
+# Original README
 
-It also provides 2 neat icons! Such as:
+[Original README](https://github.com/KaanGaming/HollowKnightDRPC/blob/main/ModInstallerReadme.txt)
 
-- **Large Image**: Which game mode you are in. Once hovered, shows the game mode itself and shows the version of the mod.
-- **Small Image**: Neat little icon on which area you are in.
+# Installation Guide
 
----
-
-## Installation
-
-1. Download the mod as usual.
-2. Download Discord GameSDK into `C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Plugins`, by first getting the [Game SDK](https://dl-game-sdk.discordapp.net/2.5.6/discord_game_sdk.zip), then extract it and find the lib folder, copy both x86 and x86_64 folders into the Plugins folder.
-3. You're ready to go! Unless you installed Discord, of course :P - I hope you know how to do that.
+[See Guide](https://kaangaming.github.io/HollowKnightDRPC/guide/Guide.html)
 
 ---
 
-## Known Problems / FAQ
+## Previews
 
-Q: It says "Failed to Load" at top left next to the mod!
-A: You haven't installed Discord GameSDK yet. Follow the second step on Installation guide.
-
-Q: When I check my Discord RPC, the room name shows a weird name!
-A: Please report it to GitHub! I haven't added all room names yet (I think), so if you made an issue about it on GitHub, it would mean a lot!
-
-Q: My game closes/restarts for some reason!
-A: It may be because you don't have Discord installed, or you didn't open Discord yet. It will close itself, try to open Discord and retry to open the game. (check?)
+![](https://i.ibb.co/0n08pWj/prev1.png)
+###### Dirtmouth - Normal save
+![](https://i.ibb.co/7z2Yr5C/prev2.png)
+###### Stag Nest - Normal save
+![](https://i.ibb.co/9rYZJ3K/prev3.png)
+###### Black Egg Temple - Normal save
+![](https://i.ibb.co/Z6XXTsF/prev4.png)
+###### Ancestral Mound - Steel Soul save
+![](https://i.ibb.co/Zc1FhMG/prev5.png)
+###### Godhome | Hall of Gods - Godseeker save
+![](https://i.ibb.co/6txKTkq/prev6.png)
+###### Small Image Tooltip
