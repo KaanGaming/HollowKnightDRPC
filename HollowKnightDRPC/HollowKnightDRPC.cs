@@ -59,14 +59,14 @@ namespace HollowKnightDRPC
 
             if (solution == 0)
             {
-                if (Directory.Exists(@".\hollow_knight_Data\Plugins\HollowKnightDRPC_x86") && Directory.Exists(@".\hollow_knight_Data\Plugins\HollowKnightDRPC_x86_64"))
+                if (Directory.Exists(@".\hollow_knight_Data\Plugins\x86") && Directory.Exists(@".\hollow_knight_Data\Plugins\x86_64"))
                     Log("Dependencies exist");
                 else
                 {
                     Log("Dependencies don't exist");
 
-                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86", @".\hollow_knight_Data\Plugins\HollowKnightDRPC_x86");
-                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86_64", @".\hollow_knight_Data\Plugins\HollowKnightDRPC_x86_64");
+                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86", @".\hollow_knight_Data\Plugins\x86");
+                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86_64", @".\hollow_knight_Data\Plugins\x86_64");
                     Log("Folders moved successfully");
 
                     Log("Dependencies installed successfully");
@@ -74,14 +74,14 @@ namespace HollowKnightDRPC
             }
             else if (solution == 1)
             {
-                if (Directory.Exists(@".\Resources\Data\Plugins\HollowKnightDRPC_x86") && Directory.Exists(@".\Resources\Data\Plugins\HollowKnightDRPC_x86_64"))
+                if (Directory.Exists(@".\Resources\Data\Plugins\x86") && Directory.Exists(@".\Resources\Data\Plugins\x86_64"))
                     Log("Dependencies exist");
                 else
                 {
                     Log("Dependencies don't exist");//
 
-                    Directory.Move(@".\Resources\Data\Managed\Mods\x86", @".\Resources\Data\Plugins\HollowKnightDRPC_x86");
-                    Directory.Move(@".\Resources\Data\Managed\Mods\x86_64", @".\Resources\Data\Plugins\HollowKnightDRPC_x86_64");
+                    Directory.Move(@".\Resources\Data\Managed\Mods\x86", @".\Resources\Data\Plugins\x86");
+                    Directory.Move(@".\Resources\Data\Managed\Mods\x86_64", @".\Resources\Data\Plugins\x86_64");
                     Log("Folders moved successfully");
 
                     Log("Dependencies installed successfully");
