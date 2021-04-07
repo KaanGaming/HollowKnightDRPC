@@ -28,7 +28,16 @@ namespace HollowKnightDRPC
                 return "Embrace The Void Ending";
             #endregion
 
-
+            #region Other
+            if (scene == "Cinematic_MrMushroom")
+                return "Mr. Mushroom's Wild Return";
+            if (scene == "Cinematic_Stag_Travel")
+                return "Travelling on Stag";
+            if (scene == "End_Credits")
+                return "Watching the Credits";
+            if (scene == "Quit_To_Menu")
+                return "Quitting to Menu";
+            #endregion
 
             #region Dirtmouth
             if (scene == "Tutorial_01")

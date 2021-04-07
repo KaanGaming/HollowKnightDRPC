@@ -21,6 +21,14 @@ namespace HollowKnightDRPC
 
         public Discord.Discord discord = null;
 
+        public SaveModSettings modSettings = new SaveModSettings
+        {
+            Details = "dfdfdf",
+            State = "dfdfdf",
+            TimestampMode = 0,
+            guide = "Welcome to the mod settings inside HollowKnight Discord RPC mod! Please visit this page:"
+        };
+
         public string currentScene = "";
 
         public ActivityManager rpc = null;
@@ -39,31 +47,31 @@ namespace HollowKnightDRPC
         public override void Initialize()
         {
             Log("Establishing Discord RPC...");
-                discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
+            discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
 
-                ModHooks.Instance.HeroUpdateHook += Update;
-                ModHooks.Instance.SavegameLoadHook += LoadGame;
-                ModHooks.Instance.SceneChanged += Locate;
+            ModHooks.Instance.HeroUpdateHook += Update;
+            ModHooks.Instance.SavegameLoadHook += LoadGame;
+            ModHooks.Instance.SceneChanged += Locate;
 
-                rpc = discord.GetActivityManager();
+            rpc = discord.GetActivityManager();
 
-                discord.SetLogHook(Discord.LogLevel.Error, (lv, log) =>
+            discord.SetLogHook(Discord.LogLevel.Error, (lv, log) =>
+            {
+                Log((int)lv + " - " + log);
+            });
+
+            act = new Activity()
+            {
+                Details = "In Menus",
+                State = "Doing stuff lolz",
+                Assets =
                 {
-                    Log((int)lv + " - " + log);
-                });
+                    LargeImage = "normal",
+                    LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447"
+                }
+            };
 
-                act = new Activity()
-                {
-                    Details = "In Menus",
-                    State = "Doing stuff lolz",
-                    Assets =
-                    {
-                        LargeImage = "normal",
-                        LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447"
-                    }
-                };
-
-                rpc.UpdateActivity(act, res => { });
+            rpc.UpdateActivity(act, res => { });
             
 
             ModHooks.Instance.ApplicationQuitHook += GameClosing;
