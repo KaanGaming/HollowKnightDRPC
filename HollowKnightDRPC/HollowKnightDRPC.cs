@@ -42,7 +42,57 @@ namespace HollowKnightDRPC
 
         public override void Initialize()
         {
-            Log("Establishing Discord RPC...");
+            Log("Mod initializing");
+
+            FileInfo fi = new FileInfo(".");
+
+            Log("DLL Location: " + fi.FullName);
+
+            byte solution = 0;
+            switch (SystemInfo.operatingSystemFamily)
+            {
+                case OperatingSystemFamily.MacOSX:
+                    solution = 1;
+                    break;
+                default:
+                    solution = 0;
+                    break;
+            }
+
+            if (solution == 0)
+            {
+                if (Directory.Exists(@".\hollow_knight_Data\Plugins\x86") && Directory.Exists(@".\hollow_knight_Data\Plugins\x86_64"))
+                    Log("Dependencies exist");
+                else
+                {
+                    Log("Dependencies don't exist");
+
+                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86", @".\hollow_knight_Data\Plugins\x86");
+                    Directory.Move(@".\hollow_knight_Data\Managed\Mods\x86_64", @".\hollow_knight_Data\Plugins\x86_64");
+                    Log("Folders moved successfully");
+
+                    Log("Dependencies installed successfully");
+                }
+            }
+            else if (solution == 1)
+            {
+                if (Directory.Exists(@".\Resources\Data\Plugins\x86") && Directory.Exists(@".\Resources\Data\Plugins\x86_64"))
+                    Log("Dependencies exist");
+                else
+                {
+                    Log("Dependencies don't exist");
+
+                    Directory.Move(@".\Resources\Data\Managed\Mods\x86", @".\Resources\Data\Plugins\x86");
+                    Directory.Move(@".\Resources\Data\Managed\Mods\x86_64", @".\Resources\Data\Plugins\x86_64");
+                    Log("Folders moved successfully");
+
+                    Log("Dependencies installed successfully");
+                }
+            }
+
+            // DEPENDENCY CODE
+            // IMAGINARY LINE ----------------------------------------------------------------------
+            // DISCORD CODE
 
             discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
 
