@@ -62,13 +62,14 @@
     <Compile Include="ActivityManager.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="EventNode.cs" />
+    <Compile Include="FunnyUpdate.cs" />
     <Compile Include="HKDRPC_DiscordEvents.cs" />
     <Compile Include="HollowKnightDRPC.cs" />
     <Compile Include="ImageManager.cs" />
     <Compile Include="LobbyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomNames.cs" />
-    <Compile Include="SaveModSettings.cs" />
     <Compile Include="StorageManager.cs" />
     <Compile Include="StoreManager.cs" />
   </ItemGroup>

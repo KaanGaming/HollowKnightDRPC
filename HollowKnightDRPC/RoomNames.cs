@@ -30,13 +30,15 @@ namespace HollowKnightDRPC
 
             #region Other
             if (scene == "Cinematic_MrMushroom")
-                return "Mr. Mushroom's Wild Return";
-            if (scene == "Cinematic_Stag_Travel")
+                return "Overview at Mr. Mushroom's Adventures (Secret Ending)";
+            if (scene == "Cinematic_Stag_travel")
                 return "Travelling on Stag";
             if (scene == "End_Credits")
                 return "Watching the Credits";
             if (scene == "Quit_To_Menu")
                 return "Quitting to Menu";
+            if (scene == "Menu_Title")
+                return "Opening save...";
             #endregion
 
             #region Dirtmouth
@@ -492,7 +494,7 @@ namespace HollowKnightDRPC
             if (scene == "Ruins2_10")
                 return "Resting Grounds - Elevator To City of Tears";
             if (scene == "Crossroads_49b")
-                return "Resting Grounds";
+                return "City of Tears - The Elevator";
             #endregion
 
             #region Kingdom's Edge

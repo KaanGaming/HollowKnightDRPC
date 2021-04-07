@@ -12,7 +12,7 @@ using Discord;
 
 namespace HollowKnightDRPC
 {
-    public partial class HollowKnightDRPC : Mod
+    public partial class HollowKnightDRPC : Mod, ITogglableMod
     {
         public HollowKnightDRPC() : base("Hollow Knight Discord RPC (CHECK README!)")
         {
@@ -20,14 +20,6 @@ namespace HollowKnightDRPC
         }
 
         public Discord.Discord discord = null;
-
-        public SaveModSettings modSettings = new SaveModSettings
-        {
-            Details = "dfdfdf",
-            State = "dfdfdf",
-            TimestampMode = 0,
-            guide = "Welcome to the mod settings inside HollowKnight Discord RPC mod! Please visit this page:"
-        };
 
         public string currentScene = "";
 
@@ -39,17 +31,26 @@ namespace HollowKnightDRPC
 
         public DateTime gamestart = DateTime.UtcNow;
 
+        public GameObject ooobject;
+
         public override string GetVersion()
         {
-            return "1.1.0 Beta";
+            return "1.1.1 Beta";
         }
+
+        public override int LoadPriority() => 10;
 
         public override void Initialize()
         {
             Log("Establishing Discord RPC...");
+
             discord = new Discord.Discord(id, (ulong)CreateFlags.Default);
 
-            ModHooks.Instance.HeroUpdateHook += Update;
+            ooobject = new GameObject("rpcstufflmao");
+
+            ooobject.AddComponent<FunnyUpdate>();
+
+            EventNode.Node1 += Update;
             ModHooks.Instance.SavegameLoadHook += LoadGame;
             ModHooks.Instance.SceneChanged += Locate;
 
@@ -87,7 +88,7 @@ namespace HollowKnightDRPC
             currentScene = targetScene;
         }
 
-        private void Update()
+        private void Update(object sender, EventArgs e)
         {
             SetRPCPlaying();
             discord.RunCallbacks();
@@ -96,6 +97,11 @@ namespace HollowKnightDRPC
         private void GameClosing()
         {
 
+        }
+
+        public void Unload()
+        {
+            
         }
     }
 }
