@@ -30,11 +30,11 @@ namespace HollowKnightDRPC
 
             #region Other
             if (scene == "Cinematic_MrMushroom")
-                return "Overview at Mr. Mushroom's Adventures (Secret Ending)";
+                return "Passing of The Age ending";
             if (scene == "Cinematic_Stag_travel")
                 return "Travelling on Stag";
             if (scene == "End_Credits")
-                return "Watching the Credits";
+                return "Credits";
             if (scene == "Quit_To_Menu")
                 return "Quitting to Menu";
             if (scene == "Menu_Title")
@@ -76,7 +76,7 @@ namespace HollowKnightDRPC
             if (scene == "Crossroads_03")
                 return "Forgotten Crossroads";
             if (scene == "Crossroads_04")
-                return "Forgotten Crossroads - Against the Gruz Mother";
+                return "Forgotten Crossroads - Gruz Mother";
             if (scene == "Crossroads_05")
                 return "Forgotten Crossroads";
             if (scene == "Crossroads_06")
@@ -88,9 +88,9 @@ namespace HollowKnightDRPC
             if (scene == "Room_Tram_RG")
                 return "Inside Tram (To FC/RG)";
             if (scene == "Crossroads_09")
-                return "Forgotten Crossroads - Against the Brooding Mawlek";
+                return "Forgotten Crossroads - Brooding Mawlek";
             if (scene == "Crossroads_10")
-                return "Forgotten Crossroads - Against the False Knight";
+                return "Forgotten Crossroads - False Knight";
             if (scene == "Crossroads_11_alt")
                 return "Greenpath - Entrance";
             if (scene == "Crossroads_12")
@@ -122,7 +122,7 @@ namespace HollowKnightDRPC
             if (scene == "Crossroads_31")
                 return "Forgotten Crossroads";
             if (scene == "Crossroads_33")
-                return "Forgotten Crossroads - Not Lost Anymore (feat. Cornifer)";
+                return "Forgotten Crossroads - Cornifer";
             if (scene == "Crossroads_35")
                 return "Forgotten Crossroads";
             if (scene == "Crossroads_36")
@@ -179,11 +179,11 @@ namespace HollowKnightDRPC
             if (scene == "Fungus1_03")
                 return "Greenpath - Storerooms"; //// suggest a better name?
             if (scene == "Fungus1_04")
-                return "Greenpath - Against Hornet";
+                return "Greenpath - Hornet";
             if (scene == "Fungus1_05")
                 return "Greenpath";
             if (scene == "Fungus1_06")
-                return "Greenpath - No More Going Lost";
+                return "Greenpath - Cornifer";
             if (scene == "Fungus1_07")
                 return "Greenpath";
             if (scene == "Fungus1_08")
@@ -274,11 +274,11 @@ namespace HollowKnightDRPC
             if (scene == "Fungus2_14")
                 return "Fungal Wastes - Mantis Village";
             if (scene == "Fungus2_15")
-                return "Fungal Wastes - Mantis Village / Against Mantis Lords";
+                return "Fungal Wastes - Mantis Village / Mantis Lords";
             if (scene == "Fungus2_17")
                 return "Fungal Wastes";
             if (scene == "Fungus2_18")
-                return "Fungal Wastes - No Longer Lost in Fungis";
+                return "Fungal Wastes - Cornifer";
             if (scene == "Fungus2_19")
                 return "Fungal Wastes";
             if (scene == "Fungus2_20")
@@ -298,7 +298,7 @@ namespace HollowKnightDRPC
             if (scene == "Fungus2_31")
                 return "Fungal Wastes - Mantis Village - No Intruders!";
             if (scene == "Fungus2_32" && PlayerData.instance.hasDreamNail)
-                return "Fungal Wastes - Against Elder Hu";
+                return "Fungal Wastes - Elder Hu";
             if (scene == "Fungus2_32" && !PlayerData.instance.hasDreamNail)
                 return "Fungal Wastes - Elder Hu's Grave";
             if (scene == "Fungus2_33")
@@ -317,9 +317,9 @@ namespace HollowKnightDRPC
             if (scene == "Fungus3_24")
                 return "Fog Canyon";
             if (scene == "Fungus3_25")
-                return "Fog Canyon - No Longer Lost in Fogs";
+                return "Fog Canyon - Cornifer";
             if (scene == "Fungus3_25b")
-                return "Fog Canyon - Close Map";
+                return "Fog Canyon";
             if (scene == "Fungus3_26")
                 return "Fog Canyon";
             if (scene == "Fungus3_27")
@@ -387,7 +387,7 @@ namespace HollowKnightDRPC
             if (scene == "Mines_17")
                 return "Crystal Peak";
             if (scene == "Mines_18")
-                return "Crystal Peak - Guardian... of the Bench";
+                return "Crystal Peak - Crystal Guardian";
             if (scene == "Mines_19")
                 return "Crystal Peak - Crushers, feat Grub";
             if (scene == "Mines_20")
@@ -403,7 +403,7 @@ namespace HollowKnightDRPC
             if (scene == "Mines_29")
                 return "Crystal Peak - Bench";
             if (scene == "Mines_30")
-                return "Crystal Peak - Not Lost in Crystals Anymore";
+                return "Crystal Peak - Cornifer";
             if (scene == "Mines_31")
                 return "Crystal Peak";
             if (scene == "Mines_32")
@@ -537,7 +537,7 @@ namespace HollowKnightDRPC
             if (scene == "Deepnest_East_18")
                 return "Kingdom's Edge";
             if (scene == "Deepnest_East_Hornet")
-                return "Kingdom's Edge - Against Hornet";
+                return "Kingdom's Edge - Hornet";
             #region Colosseum of Fools
             if (scene == "GG_Lurker")
                 return "Kingdom's Edge - Pale Lurker";
@@ -572,7 +572,7 @@ namespace HollowKnightDRPC
             if (scene == "Hive_04")
                 return "The Hive";
             if (scene == "Hive_05")
-                return "The Hive - Against The Hive Knight";
+                return "The Hive - Hive Knight";
             #endregion
             #endregion
 
@@ -616,7 +616,7 @@ namespace HollowKnightDRPC
             if (scene == "Ruins1_23")
                 return "City of Tears - Soul Sanctum - Entrance";
             if (scene == "Ruins1_24")
-                return "City of Tears - Against Soul Master";
+                return "City of Tears - Soul Master";
             if (scene == "Ruins1_25")
                 return "City of Tears - Soul Sanctum";
             if (scene == "Ruins1_27")
@@ -628,7 +628,7 @@ namespace HollowKnightDRPC
             if (scene == "Ruins1_30")
                 return "City of Tears - Soul Sanctum";
             if (scene == "Ruins1_31")
-                return "City of Tears - Breaktime With a Mapper";
+                return "City of Tears - Cornifer / Toll Bench";
             if (scene == "Ruins1_32")
                 return "City of Tears - Soul Master";
             if (scene == "Ruins2_01")
@@ -636,7 +636,7 @@ namespace HollowKnightDRPC
             if (scene == "Ruins2_01_b")
                 return "City of Tears - Watcher's Spire";
             if (scene == "Ruins2_03")
-                return "City of Tears - Against Watcher Knights";
+                return "City of Tears - Watcher Knights";
             if (scene == "Ruins2_03b")
                 return "City of Tears - Watcher's Spire";
             if (scene == "Ruins2_04")
@@ -680,7 +680,7 @@ namespace HollowKnightDRPC
             if (scene == "Waterways_04b")
                 return "Royal Waterways";
             if (scene == "Waterways_05")
-                return "Royal Waterways - Against Dung Defender";
+                return "Royal Waterways - Dung Defender";
             if (scene == "Waterways_06")
                 return "Royal Waterways";
             if (scene == "Waterways_07")
@@ -688,9 +688,9 @@ namespace HollowKnightDRPC
             if (scene == "Waterways_08")
                 return "Royal Waterways";
             if (scene == "Waterways_09")
-                return "Royal Waterways - Thank You, Kind Mapper!";
+                return "Royal Waterways - Cornifer";
             if (scene == "Waterways_12")
-                return "Royal Waterways - Against Flukemarm";
+                return "Royal Waterways - Flukemarm";
             if (scene == "Waterways_13")
                 return "Royal Waterways - Isma's Grove";
             if (scene == "Waterways_14")
@@ -721,13 +721,13 @@ namespace HollowKnightDRPC
             if (scene == "Deepnest_26")
                 return "Deepnest - Failed Tramway";
             if (scene == "Deepnest_26b")
-                return "Deepnest - Failed Tramway - Successful Tram Pass";
+                return "Deepnest - Failed Tramway";
             if (scene == "Deepnest_30")
-                return "Deepnest - Hot Spring (finally)";
+                return "Deepnest - Hot Spring";
             if (scene == "Deepnest_31")
                 return "Deepnest";
             if (scene == "Deepnest_32")
-                return "Deepnest - Against Nosk";
+                return "Deepnest - Nosk";
             if (scene == "Deepnest_33")
                 return "Deepnest - Zote the Mighty";
             if (scene == "Deepnest_34")
@@ -735,7 +735,7 @@ namespace HollowKnightDRPC
             if (scene == "Deepnest_35")
                 return "Deepnest";
             if (scene == "Deepnest_36")
-                return "Deepnest - Which One Of Us Is Real?";
+                return "Deepnest";
             if (scene == "Deepnest_37")
                 return "Deepnest - Way to the Tram Station";
             if (scene == "Deepnest_38")
@@ -743,7 +743,7 @@ namespace HollowKnightDRPC
             if (scene == "Deepnest_39")
                 return "Deepnest - Distant Root";
             if (scene == "Deepnest_40")
-                return "Deepnest - Against Galien";
+                return "Deepnest - Galien";
             if (scene == "Deepnest_41")
                 return "Deepnest - Midwife";
             if (scene == "Deepnest_42")
@@ -784,7 +784,7 @@ namespace HollowKnightDRPC
             if (scene == "Fungus1_22")
                 return "Queen's Gardens";
             if (scene == "Fungus1_23")
-                return "Queen's Gardens - Against Traitor Lord";
+                return "Queen's Gardens - Traitor Lord";
             if (scene == "Fungus1_34")
                 return "Queen's Gardens - Entrance";
             if (scene == "Fungus1_39")
@@ -848,11 +848,11 @@ namespace HollowKnightDRPC
 
             #region Final Boss
             if (scene == "Dream_Final_Boss")
-                return "Against The Radiance";
+                return "The Radiance";
             if (scene == "Room_Final_Boss_Atrium")
                 return "Black Egg - Bench";
             if (scene == "Room_Final_Boss_Core")
-                return "Against The Hollow Knight";
+                return "The Hollow Knight";
             #endregion
 
             #region Grimm Troupe DLC
@@ -861,18 +861,18 @@ namespace HollowKnightDRPC
             if (scene == "Grimm_Main_Tent")
                 return "Dirtmouth - Grimm's Tent";
             if (scene == "Grimm_Nightmare")
-                return "Dirtmouth - Against Nightmare King Grimm";
+                return "Dirtmouth - Nightmare King Grimm";
             #endregion
 
             #region Dreams
             if (scene == "Dream_01_False_Knight")
-                return "Forgotten Crossroads - Against Failed Champion";
+                return "Forgotten Crossroads - Failed Champion";
             if (scene == "Dream_02_Mage_Lord")
-                return "City of Tears - Against Soul Tyrant";
+                return "City of Tears - Soul Tyrant";
             if (scene == "Dream_03_Infected_Knight")
-                return "Ancient Basin - Against Lost Kin";
+                return "Ancient Basin - Lost Kin";
             if (scene == "Dream_04_Infected_Knight")
-                return "Royal Waterways - Against White Defender";
+                return "Royal Waterways - White Defender";
             if (scene == "Dream_Abyss")
                 return "The Abyss - No mind to think. No voice to cry suffering.";
             if (scene == "Dream_Backer_Shrine")
@@ -886,7 +886,7 @@ namespace HollowKnightDRPC
 
 
             if (scene == "Dream_Mighty_Zote")
-                return "Dirtmouth - Against Grey Prince Zote";
+                return "Dirtmouth - Grey Prince Zote";
             if (scene == "Dream_Nailcollection")
                 return "Resting Grounds - Forgotten Dream";
             if (scene == "Dream_Room_Believer_Shrine")
@@ -922,115 +922,115 @@ namespace HollowKnightDRPC
             #region GG_Bosses
 
             if (scene == "GG_Gruz_Mother_V")
-                return "Godhome - Against Gruz Mother";
+                return "Godhome - Gruz Mother";
             if (scene == "GG_Gruz_Mother")
-                return "Godhome - Against Gruz Mother";
+                return "Godhome - Gruz Mother";
             if (scene == "GG_False_Knight")
-                return "Godhome - Against the False Knight";
+                return "Godhome - False Knight";
             if (scene == "GG_Mega_Moss_Charger")
-                return "Godhome - Against Massive Moss Charger";
+                return "Godhome - Massive Moss Charger";
             if (scene == "GG_Hornet_1")
-                return "Godhome - Against Protector Hornet";
+                return "Godhome - Protector Hornet";
             if (scene == "GG_Ghost_Gorb_V")
-                return "Godhome - Against Gorb";
+                return "Godhome - Gorb";
             if (scene == "GG_Ghost_Gorb")
-                return "Godhome - Against Gorb";
+                return "Godhome - Gorb";
             if (scene == "GG_Dung_Defender")
-                return "Godhome - Against Dung Defender";
+                return "Godhome - Dung Defender";
             if (scene == "GG_Mage_Knight_V")
-                return "Godhome - Against Soul Tyrant";
+                return "Godhome - Soul Tyrant";
             if (scene == "GG_Mage_Knight")
-                return "Godhome - Against Soul Tyrant";
+                return "Godhome - Soul Tyrant";
             if (scene == "GG_Brooding_Mawlek_V")
-                return "Godhome - Against the Brooding Mawlek";
+                return "Godhome - Brooding Mawlek";
             if (scene == "GG_Brooding_Mawlek")
-                return "Godhome - Against the Brooding Mawlek";
+                return "Godhome - Brooding Mawlek";
             if (scene == "GG_Ghost_Xero_V")
-                return "Godhome - Against Xero";
+                return "Godhome - Xero";
             if (scene == "GG_Ghost_Xero")
-                return "Godhome - Against Xero";
+                return "Godhome - Xero";
             if (scene == "GG_Crystal_Guardian")
-                return "Godhome - Against Crystal Guardian";
+                return "Godhome - Crystal Guardian";
             if (scene == "GG_Ghost_Marmu_V")
-                return "Godhome - Against Marmu";
+                return "Godhome - Marmu";
             if (scene == "GG_Ghost_Marmu")
-                return "Godhome - Against Marmu";
+                return "Godhome - Marmu";
             if (scene == "GG_Flukemarm")
-                return "Godhome - Against Flukemarm";
+                return "Godhome - Flukemarm";
             if (scene == "GG_Broken_Vessel")
-                return "Godhome - Against the Broken Vessel";
+                return "Godhome - Broken Vessel";
             if (scene == "GG_Ghost_Galien")
-                return "Godhome - Against Galien";
+                return "Godhome - Galien";
             if (scene == "GG_Painter")
-                return "Godhome - Against Sheo the Painter";
+                return "Godhome - Sheo Painter";
             if (scene == "GG_Hive_Knight")
-                return "Godhome - Against the Hive Knight";
+                return "Godhome - Hive Knight";
             if (scene == "GG_Ghost_Hu")
-                return "Godhome - Against Elder Hu";
+                return "Godhome - Elder Hu";
             if (scene == "GG_Collector_V")
-                return "Godhome - Against The Collector";
+                return "Godhome - The Collector";
             if (scene == "GG_Collector")
-                return "Godhome - Against The Collector";
+                return "Godhome - The Collector";
             if (scene == "GG_Grimm")
-                return "Godhome - Against Grimm Troupe Master";
+                return "Godhome - Grimm Troupe Master";
             if (scene == "GG_Uumuu_V")
-                return "Godhome - Against Uumuu";
+                return "Godhome - Uumuu";
             if (scene == "GG_Uumuu")
-                return "Godhome - Against Uumuu";
+                return "Godhome - Uumuu";
             if (scene == "GG_Nosk_Hornet")
-                return "Godhome - Against Flying Nosk";
+                return "Godhome - Flying Nosk";
             if (scene == "GG_Sly")
-                return "Godhome - Against Great Nailsaga Sly"; //// check?
+                return "Godhome - Great Nailsaga Sly"; //// check?
             if (scene == "GG_Hornet_2")
-                return "Godhome - Against Sentinel Hornet";
+                return "Godhome - Sentinel Hornet";
             if (scene == "GG_Crystal_Guardian_2")
-                return "Godhome - Against Enraged Guardian";
+                return "Godhome - Enraged Guardian";
             if (scene == "GG_Lost_Kin")
-                return "Godhome - Against Lost Kin";
+                return "Godhome - Lost Kin";
             if (scene == "GG_Ghost_No_Eyes_V")
-                return "Godhome - Against No Eyes";
+                return "Godhome - No Eyes";
             if (scene == "GG_Ghost_No_Eyes")
-                return "Godhome - Against No Eyes";
+                return "Godhome - No Eyes";
             if (scene == "GG_Traitor_Lord")
-                return "Godhome - Against the Traitor Lord";
+                return "Godhome - Traitor Lord";
             if (scene == "GG_White_Defender")
-                return "Godhome - Against the White Defender";
+                return "Godhome - White Defender";
             if (scene == "GG_Ghost_Markoth_V")
-                return "Godhome - Against Markoth";
+                return "Godhome - Markoth";
             if (scene == "GG_Ghost_Markoth")
-                return "Godhome - Against Markoth";
+                return "Godhome - Markoth";
             if (scene == "GG_Grey_Prince_Zote")
-                return "Godhome - Against Grey Prince Zote";
+                return "Godhome - Grey Prince Zote";
             if (scene == "GG_Failed_Champion")
-                return "Godhome - Against the Failed Champion";
+                return "Godhome - Failed Champion";
             if (scene == "GG_Radiance")
-                return "Godhome - Against Absolute Radiance";
+                return "Godhome - Absolute Radiance";
             if (scene == "GG_Hollow_Knight")
-                return "Godhome - Against the Pure Vessel";
+                return "Godhome - Pure Vessel";
             if (scene == "GG_Grimm_Nightmare")
-                return "Godhome - Against Nightmare King Grimm";
+                return "Godhome - Nightmare King Grimm";
             if (scene == "GG_Vengefly_V")
-                return "Godhome - Against the Vengefly King";
+                return "Godhome - Vengefly Kings";
             if (scene == "GG_Vengefly")
-                return "Godhome - Against the Vengefly King";
+                return "Godhome - Vengefly King";
             if (scene == "GG_Nailmasters")
-                return "Godhome - Against Nailmaster Oro & Mato";
+                return "Godhome - Nailmaster Oro & Mato";
             if (scene == "GG_Soul_Master")
-                return "Godhome - Against Soul Master";
+                return "Godhome - Soul Master";
             if (scene == "GG_Oblobbles")
-                return "Godhome - Against Oblobbles";
+                return "Godhome - Oblobbles";
             if (scene == "GG_Mantis_Lords_V")
-                return "Godhome - Against the Mantis Lords";
+                return "Godhome - Sisters of Battle";
             if (scene == "GG_Mantis_Lords")
-                return "Godhome - Against the Mantis Lords";
+                return "Godhome - Mantis Lords";
             if (scene == "GG_God_Tamer")
-                return "Godhome - Against the God Tamer";
+                return "Godhome - God Tamer";
             if (scene == "GG_Watcher_Knights")
-                return "Godhome - Against Watcher Knights";
+                return "Godhome - Watcher Knights";
             if (scene == "GG_Soul_Tyrant")
-                return "Godhome - Against Soul Tyrant";
+                return "Godhome - Soul Tyrant";
             if (scene == "GG_Nosk")
-                return "Godhome - Against Nosk";
+                return "Godhome - Nosk";
 
             #endregion
             #endregion
@@ -1062,9 +1062,9 @@ namespace HollowKnightDRPC
                 return new Assetz { Image = "sheo", Text = "Greenpath" };
             if (newName == "Fog Canyon - Teacher's Archives Entrance")
                 return new Assetz { Image = "archives", Text = "Teacher's Archives" };
-            if (newName == "Greenpath - Against Hornet")
+            if (newName == "Greenpath - Hornet")
                 return new Assetz { Image = "hornet", Text = "Greenpath" };
-            if (newName == "Kingdom's Edge - Against Hornet")
+            if (newName == "Kingdom's Edge - Hornet")
                 return new Assetz { Image = "hornet", Text = "Kingdom's Edge" };
             if (newName == "Overgrown Mound")
                 return new Assetz { Image = "fog", Text = "Fog Canyon" };
@@ -1072,10 +1072,12 @@ namespace HollowKnightDRPC
                 return new Assetz { Image = "crystal", Text = "Crystal Peak" };
             if (newName == "Black Egg - Bench")
                 return new Assetz { Image = "blackegg", Text = "Forgotten Crossroads" };
-            if (newName == "Against The Hollow Knight")
+            if (newName == "The Hollow Knight")
                 return new Assetz { Image = "hollowknight", Text = "" };
-            if (newName == "Against The Radiance")
+            if (newName == "The Radiance")
                 return new Assetz { Image = "radiance", Text = "" };
+            if (newName == "Godhome - Absolute Radiance")
+                return new Assetz { Image = "radiance", Text = "Godhome" };
 
             if (newName.StartsWith("Dirtmouth"))
                 return new Assetz { Image = "dirtmouth", Text = "Dirtmouth" };

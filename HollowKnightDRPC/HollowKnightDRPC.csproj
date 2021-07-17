@@ -38,9 +38,6 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="ModCommon">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\ModCommon.dll</HintPath>
     </Reference>
@@ -74,7 +71,17 @@
     <Compile Include="StoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GameSDK_Libraries\x86\discord_game_sdk_86.dll.lib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.bundle" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dll.lib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dylib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.so" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="GameSDK_Libraries\x86\discord_game_sdk_86.dll" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

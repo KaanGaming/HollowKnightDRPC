@@ -55,10 +55,10 @@ namespace HollowKnightDRPC
             if (small.Text != "") act.Assets.SmallText = small.Text;
 
             if (!PlayerData.instance.equippedCharm_27)
-                act.State = (hp + PlayerData.instance.healthBlue) + "/" + masks + " Masks - ";
+                act.State = (hp + PlayerData.instance.healthBlue) + "/" + masks + " HP - ";
             else
-                act.State = (hp + PlayerData.instance.healthBlue) + " Joni Masks - ";
-            if (soulvessels > 0) act.State += soulvessels + " Soul Vessels - ";
+                act.State = (hp + PlayerData.instance.healthBlue) + " HP - ";
+            if (soulvessels > 0) act.State += soulvessels + " S.Vessels - ";
             act.State += geo + " Geo";
         }
 
