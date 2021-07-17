@@ -893,6 +893,8 @@ namespace HollowKnightDRPC
                 return "Resting Grounds - Inside Shrine of Believers";
 
             #region Godhome
+            if (scene == "GG_Entrance_Cutscene")
+                return "Godhome";
             if (scene == "GG_Atrium")
                 return "Godhome";
             if (scene == "GG_Atrium_Roof")

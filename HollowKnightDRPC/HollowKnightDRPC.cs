@@ -43,7 +43,7 @@ namespace HollowKnightDRPC
 
         public override string GetVersion()
         {
-            return "1.1.3 Beta";
+            return "1.1.3.1 Beta";
         }
 
         byte[] GetEmbeddedResource(string resourceName)
