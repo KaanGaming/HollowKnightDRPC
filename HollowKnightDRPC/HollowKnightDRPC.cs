@@ -5,7 +5,6 @@ using System.Reflection;
 using System.IO;
 using System;
 using System.Diagnostics;
-using Mono;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -120,8 +119,8 @@ namespace HollowKnightDRPC
             ooobject.AddComponent<FunnyUpdate>();
 
             EventNode.Node1 += Update;
-            ModHooks.Instance.SavegameLoadHook += LoadGame;
-            ModHooks.Instance.SceneChanged += Locate;
+            ModHooks.SavegameLoadHook += LoadGame;
+            ModHooks.SceneChanged += Locate;
 
             rpc = discord.GetActivityManager();
 
