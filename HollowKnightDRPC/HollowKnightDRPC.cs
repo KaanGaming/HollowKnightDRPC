@@ -22,12 +22,6 @@ namespace HollowKnightDRPC
             
         }
 
-        public bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain,
-                                      SslPolicyErrors sslPolicyErrors)
-        {
-            return true;;
-        }
-
         public Discord.Discord discord = null;
 
         public string currentScene = "";
@@ -44,7 +38,7 @@ namespace HollowKnightDRPC
 
         public override string GetVersion()
         {
-            return "1.1.3 Beta";
+            return "1.1.4 Beta";
         }
 
         byte[] GetEmbeddedResource(string resourceName)
@@ -64,48 +58,70 @@ namespace HollowKnightDRPC
                     s.Dispose();
                 }
             }
+            
             return returningval;
         }
 
         public override int LoadPriority() => 10;
 
+        #region Functions used inside Initialize()
+        public bool CheckIntegrity()
+        {
+            bool integrity = true;
+
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll.lib")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll.lib")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.bundle")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dylib")) integrity = false;
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.so")) integrity = false;
+
+            return integrity;
+        }
+
+        public void LoadDLLs()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            string sdk86dll = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk_86.dll"));
+            string sdk86lib = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk_86.dll.lib"));
+
+            string sdkdll = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk.dll"));
+            string sdkbundle = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk.bundle"));
+            string sdklib = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk.dll.lib"));
+            string sdkdylib = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk.dylib"));
+            string sdkso = assembly.GetManifestResourceNames()
+                .Single(str => str.EndsWith("discord_game_sdk.so"));
+
+            if (!Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86"))
+                Directory.CreateDirectory(".\\hollow_knight_Data\\Plugins\\x86");
+            if (!Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86_64"))
+                Directory.CreateDirectory(".\\hollow_knight_Data\\Plugins\\x86_64");
+
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll", GetEmbeddedResource(sdk86dll));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll.lib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll.lib", GetEmbeddedResource(sdk86lib));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll", GetEmbeddedResource(sdkdll));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll.lib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll.lib", GetEmbeddedResource(sdklib));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.bundle")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.bundle", GetEmbeddedResource(sdkbundle));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dylib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dylib", GetEmbeddedResource(sdkdylib));
+            if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.so")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.so", GetEmbeddedResource(sdkso));
+        }
+        #endregion
+
         public override void Initialize()
         {
             Log("Mod initializing");
-            ServicePointManager.ServerCertificateValidationCallback = CheckValidationResult;
 
             if (!File.Exists(".\\NO SDK CHECK.drpc"))
             {
-                if (!Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86") || !Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86_64")) {
-                    var assembly = Assembly.GetExecutingAssembly();
-                    string sdk86dll = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk_86.dll"));
-                    string sdk86lib = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk_86.dll.lib"));
-
-                    string sdkdll = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk.dll"));
-                    string sdkbundle = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk.bundle"));
-                    string sdklib = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk.dll.lib"));
-                    string sdkdylib = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk.dylib"));
-                    string sdkso = assembly.GetManifestResourceNames()
-                        .Single(str => str.EndsWith("discord_game_sdk.so"));
-
-                    if (!Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86"))
-                        Directory.CreateDirectory(".\\hollow_knight_Data\\Plugins\\x86");
-                    if (!Directory.Exists(".\\hollow_knight_Data\\Plugins\\x86_64"))
-                        Directory.CreateDirectory(".\\hollow_knight_Data\\Plugins\\x86_64");
-
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll", GetEmbeddedResource(sdk86dll));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll.lib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86\\discord_game_sdk.dll.lib", GetEmbeddedResource(sdk86lib));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll", GetEmbeddedResource(sdkdll));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll.lib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dll.lib", GetEmbeddedResource(sdklib));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.bundle")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.bundle", GetEmbeddedResource(sdkbundle));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dylib")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.dylib", GetEmbeddedResource(sdkdylib));
-                    if (!File.Exists(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.so")) File.WriteAllBytes(".\\hollow_knight_Data\\Plugins\\x86_64\\discord_game_sdk.so", GetEmbeddedResource(sdkso));
+                if (!CheckIntegrity()) {
+                    LoadDLLs();
                 }
             }
 
@@ -129,17 +145,6 @@ namespace HollowKnightDRPC
             {
                 Log((int)lv + " - " + log);
             });
-
-            act = new Activity()
-            {
-                Details = "In Menus",
-                State = "Doing stuff lolz",
-                Assets =
-                {
-                    LargeImage = "normal",
-                    LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447"
-                }
-            };
 
             rpc.UpdateActivity(act, res => { });
         }

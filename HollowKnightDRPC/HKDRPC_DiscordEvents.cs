@@ -36,16 +36,16 @@ namespace HollowKnightDRPC
             switch (gm)
             {
                 case GameMode.Normal:
-                    act.Assets.LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447";
+                    act.Assets.LargeText = "Discord RPC " + GetVersion();
                     act.Assets.LargeImage = "normal";
                     break;
                 case GameMode.SteelSoul:
                     act.Assets.LargeImage = "steelsoul";
-                    act.Assets.LargeText = "Steel Soul - Discord RPC " + GetVersion() + " by @KaanGaming#7447";
+                    act.Assets.LargeText = "Steel Soul - Discord RPC " + GetVersion();
                     break;
                 case GameMode.Godseeker:
                     act.Assets.LargeImage = "godseeker";
-                    act.Assets.LargeText = "Godseeker - Discord RPC " + GetVersion() + " by @KaanGaming#7447";
+                    act.Assets.LargeText = "Godseeker - Discord RPC " + GetVersion();
                     break;
             }
 
@@ -66,7 +66,7 @@ namespace HollowKnightDRPC
         {
             act.Details = "In Menu";
             act.Assets.LargeImage = "normal";
-            act.Assets.LargeText = "Discord RPC " + GetVersion() + " by @KaanGaming#7447";
+            act.Assets.LargeText = "Discord RPC " + GetVersion();
             act.Assets.SmallImage = null;
             act.State = null;
             act.Timestamps = new ActivityTimestamps();
