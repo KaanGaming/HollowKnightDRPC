@@ -22,23 +22,28 @@ namespace HollowKnightDRPC
             
         }
 
+        bool displayBossHP = false;
+        List<(GameObject bossobj, int maxhp)> bosses = new List<(GameObject bossobj, int maxhp)>();
+
         public Discord.Discord discord = null;
+
+        private RPCGlobalSettings Settings = new RPCGlobalSettings();
+
+        public override ModSettings GlobalSettings { get => Settings; set => Settings = (RPCGlobalSettings)value; }
 
         public string currentScene = "";
 
         public ActivityManager rpc = null;
-
         public Activity act = new Activity();
-
         public long id = 827571383080845322;
 
         public DateTime gamestart = DateTime.UtcNow;
 
-        public GameObject ooobject;
+        public GameObject RPCobject;
 
         public override string GetVersion()
         {
-            return "1.1.4 Beta";
+            return "1.0.0";
         }
 
         byte[] GetEmbeddedResource(string resourceName)
@@ -131,13 +136,15 @@ namespace HollowKnightDRPC
 
             discord = new Discord.Discord(id, (ulong)CreateFlags.NoRequireDiscord);
 
-            ooobject = new GameObject("rpcstufflmao");
+            RPCobject = new GameObject("Discord RPC");
 
-            ooobject.AddComponent<FunnyUpdate>();
+            RPCobject.AddComponent<RPCGameObject>();
 
             EventNode.Node1 += Update;
             ModHooks.Instance.SavegameLoadHook += LoadGame;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += SceneChanged;
             ModHooks.Instance.SceneChanged += Locate;
+            ModHooks.Instance.OnEnableEnemyHook += EnemySpawn;
 
             rpc = discord.GetActivityManager();
 
@@ -147,6 +154,51 @@ namespace HollowKnightDRPC
             });
 
             rpc.UpdateActivity(act, res => { });
+        }
+
+        private void SceneChanged(UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
+        {
+            bosses.Clear();
+            displayBossHP = false;
+            vkings = 0;
+            vking_maxhp = 0;
+            vking_maxhp_done = false;
+            mlords = 0;
+            mlord_maxhp = 0;
+            mlord_maxhp_done = false;
+            watchknights = 0;
+            watchknight_maxhp = 0;
+            watchknight_maxhp_done = false;
+            oblobbles = 0;
+            oblobble_maxhp = 0;
+            oblobble_maxhp_done = false;
+            soultyrants = 0;
+            soultyrant_maxhp = 0;
+            soultyrant_maxhp_done = false;
+            soulmasters = 0;
+            soulmaster_maxhp = 0;
+            soulmaster_maxhp_done = false;
+            oromato_phase = 0;
+            displayBossHPText = true;
+        }
+
+        private bool EnemySpawn(GameObject enemy, bool isAlreadyDead)
+        {
+            if (isAlreadyDead) return true;
+
+            var hm = enemy.GetComponent<HealthManager>();
+            if (hm == null) return false;
+
+            // most of the code here is from EnemyHPBar
+            EnemyDeathEffects ede = enemy.GetComponent<EnemyDeathEffects>();
+            EnemyDeathTypes? deathType = ede == null
+                ? null
+                : DEATH_FI?.GetValue(ede) as EnemyDeathTypes?;
+            if (hm.hp >= 200 || deathType == EnemyDeathTypes.LargeInfected)
+            {
+                bosses.Add((enemy, hm.hp));
+            }
+            return false;
         }
 
         private void LoadGame(int id)
@@ -164,5 +216,14 @@ namespace HollowKnightDRPC
             SetRPCPlaying();
             discord.RunCallbacks();
         }
+
+        private static readonly FieldInfo DEATH_FI = typeof(EnemyDeathEffects).GetField("enemyDeathType", BindingFlags.NonPublic | BindingFlags.Instance);
+    }
+
+    public class RPCGlobalSettings : ModSettings
+    {
+        public bool AlwaysShowCompletion = false;
+        public bool ShowTotalSaveTime = false;
+        public bool BossHPShowPercentage = true;
     }
 }
