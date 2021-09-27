@@ -893,8 +893,6 @@ namespace HollowKnightDRPC
                 return "Resting Grounds - Inside Shrine of Believers";
 
             #region Godhome
-            if (scene == "GG_Entrance_Cutscene")
-                return "Godhome";
             if (scene == "GG_Atrium")
                 return "Godhome";
             if (scene == "GG_Atrium_Roof")
@@ -908,7 +906,7 @@ namespace HollowKnightDRPC
             if (scene == "GG_Workshop")
                 return "Godhome - Hall of Gods";
             if (scene == "GG_Engine")
-                return "Godhome - A Break With Godseeker";
+                return "Godhome - Godseeker Apparition";
             if (scene == "GG_Boss_Door_Entrance")
                 return "Godhome - Entering Pantheon";
             if (scene == "GG_Engine_Root")
@@ -940,9 +938,9 @@ namespace HollowKnightDRPC
             if (scene == "GG_Dung_Defender")
                 return "Godhome - Dung Defender";
             if (scene == "GG_Mage_Knight_V")
-                return "Godhome - Soul Tyrant";
+                return "Godhome - Soul Warrior";
             if (scene == "GG_Mage_Knight")
-                return "Godhome - Soul Tyrant";
+                return "Godhome - Soul Warrior";
             if (scene == "GG_Brooding_Mawlek_V")
                 return "Godhome - Brooding Mawlek";
             if (scene == "GG_Brooding_Mawlek")
@@ -964,7 +962,7 @@ namespace HollowKnightDRPC
             if (scene == "GG_Ghost_Galien")
                 return "Godhome - Galien";
             if (scene == "GG_Painter")
-                return "Godhome - Sheo Painter";
+                return "Godhome - Sheo the Painter";
             if (scene == "GG_Hive_Knight")
                 return "Godhome - Hive Knight";
             if (scene == "GG_Ghost_Hu")
@@ -974,7 +972,7 @@ namespace HollowKnightDRPC
             if (scene == "GG_Collector")
                 return "Godhome - The Collector";
             if (scene == "GG_Grimm")
-                return "Godhome - Grimm Troupe Master";
+                return "Godhome - Grimm";
             if (scene == "GG_Uumuu_V")
                 return "Godhome - Uumuu";
             if (scene == "GG_Uumuu")
@@ -982,7 +980,7 @@ namespace HollowKnightDRPC
             if (scene == "GG_Nosk_Hornet")
                 return "Godhome - Flying Nosk";
             if (scene == "GG_Sly")
-                return "Godhome - Great Nailsaga Sly"; //// check?
+                return "Godhome - Great Nailsage Sly";
             if (scene == "GG_Hornet_2")
                 return "Godhome - Sentinel Hornet";
             if (scene == "GG_Crystal_Guardian_2")
@@ -1058,86 +1056,86 @@ namespace HollowKnightDRPC
             else return scene;
         }
 
-        public static Assetz GetSmallAsset(string newName)
+        public static RPCAssets GetSmallAsset(string newName)
         {
             if (newName == "Greenpath - Sheo the Painter")
-                return new Assetz { Image = "sheo", Text = "Greenpath" };
+                return new RPCAssets { Image = "sheo", Text = "Greenpath" };
             if (newName == "Fog Canyon - Teacher's Archives Entrance")
-                return new Assetz { Image = "archives", Text = "Teacher's Archives" };
+                return new RPCAssets { Image = "archives", Text = "Teacher's Archives" };
             if (newName == "Greenpath - Hornet")
-                return new Assetz { Image = "hornet", Text = "Greenpath" };
+                return new RPCAssets { Image = "hornet", Text = "Greenpath" };
             if (newName == "Kingdom's Edge - Hornet")
-                return new Assetz { Image = "hornet", Text = "Kingdom's Edge" };
+                return new RPCAssets { Image = "hornet", Text = "Kingdom's Edge" };
             if (newName == "Overgrown Mound")
-                return new Assetz { Image = "fog", Text = "Fog Canyon" };
+                return new RPCAssets { Image = "fog", Text = "Fog Canyon" };
             if (newName == "Crystal Mound")
-                return new Assetz { Image = "crystal", Text = "Crystal Peak" };
+                return new RPCAssets { Image = "crystal", Text = "Crystal Peak" };
             if (newName == "Black Egg - Bench")
-                return new Assetz { Image = "blackegg", Text = "Forgotten Crossroads" };
+                return new RPCAssets { Image = "blackegg", Text = "Forgotten Crossroads" };
             if (newName == "The Hollow Knight")
-                return new Assetz { Image = "hollowknight", Text = "" };
+                return new RPCAssets { Image = "hollowknight", Text = "" };
             if (newName == "The Radiance")
-                return new Assetz { Image = "radiance", Text = "" };
+                return new RPCAssets { Image = "radiance", Text = "" };
             if (newName == "Godhome - Absolute Radiance")
-                return new Assetz { Image = "radiance", Text = "Godhome" };
+                return new RPCAssets { Image = "radiance", Text = "Godhome" };
 
             if (newName.StartsWith("Dirtmouth"))
-                return new Assetz { Image = "dirtmouth", Text = "Dirtmouth" };
+                return new RPCAssets { Image = "dirtmouth", Text = "Dirtmouth" };
             if (newName.StartsWith("King's Pass"))
-                return new Assetz { Image = "kingspass", Text = "King's Pass" };
+                return new RPCAssets { Image = "kingspass", Text = "King's Pass" };
             if (newName.StartsWith("Forgotten Crossroads"))
-                return new Assetz { Image = "crossroads", Text = "Forgotten Crossroads" };
+                return new RPCAssets { Image = "crossroads", Text = "Forgotten Crossroads" };
             if (newName.StartsWith("Greenpath"))
-                return new Assetz { Image = "greenpath", Text = "Greenpath" };
+                return new RPCAssets { Image = "greenpath", Text = "Greenpath" };
             if (newName.StartsWith("Fungal Wastes"))
-                return new Assetz { Image = "wastes", Text = "Fungal Wastes" };
+                return new RPCAssets { Image = "wastes", Text = "Fungal Wastes" };
             if (newName.StartsWith("Teacher's Archives"))
-                return new Assetz { Image = "archives", Text = "Teacher's Archives" };
+                return new RPCAssets { Image = "archives", Text = "Teacher's Archives" };
             if (newName.StartsWith("Fog Canyon"))
-                return new Assetz { Image = "fog", Text = "Fog Canyon" };
+                return new RPCAssets { Image = "fog", Text = "Fog Canyon" };
             if (newName.StartsWith("Queen's Station"))
-                return new Assetz { Image = "wastes", Text = "Queen's Station" };
+                return new RPCAssets { Image = "wastes", Text = "Queen's Station" };
             if (newName.StartsWith("Ancient Basin"))
-                return new Assetz { Image = "basin", Text = "Ancient Basin" };
+                return new RPCAssets { Image = "basin", Text = "Ancient Basin" };
             if (newName.StartsWith("The Abyss"))
-                return new Assetz { Image = "abyss", Text = "The Abyss" };
+                return new RPCAssets { Image = "abyss", Text = "The Abyss" };
             if (newName.StartsWith("Resting Grounds"))
-                return new Assetz { Image = "grounds", Text = "Resting Grounds" };
+                return new RPCAssets { Image = "grounds", Text = "Resting Grounds" };
             if (newName.StartsWith("City of Tears"))
-                return new Assetz { Image = "city", Text = "City of Tears" };
+                return new RPCAssets { Image = "city", Text = "City of Tears" };
             if (newName.StartsWith("The Hive"))
-                return new Assetz { Image = "hive", Text = "The Hive" };
+                return new RPCAssets { Image = "hive", Text = "The Hive" };
             if (newName.StartsWith("Kingdom's Edge"))
-                return new Assetz { Image = "kedge", Text = "Kingdom's Edge" };
+                return new RPCAssets { Image = "kedge", Text = "Kingdom's Edge" };
             if (newName.StartsWith("Colosseum of Fools"))
-                return new Assetz { Image = "fool", Text = "Colosseum of Fools" };
+                return new RPCAssets { Image = "fool", Text = "Colosseum of Fools" };
             if (newName.StartsWith("White Palace - Path of Pain"))
-                return new Assetz { Image = "pop", Text = "White Palace" };
+                return new RPCAssets { Image = "pop", Text = "White Palace" };
             if (newName.StartsWith("White Palace"))
-                return new Assetz { Image = "whitepalace", Text = "White Palace" };
+                return new RPCAssets { Image = "whitepalace", Text = "White Palace" };
             if (newName.StartsWith("Royal Waterways"))
-                return new Assetz { Image = "waterways", Text = "Royal Waterways" };
+                return new RPCAssets { Image = "waterways", Text = "Royal Waterways" };
             if (newName.StartsWith("Howling Cliffs"))
-                return new Assetz { Image = "kingspass", Text = "Howling Cliffs" };
+                return new RPCAssets { Image = "kingspass", Text = "Howling Cliffs" };
             if (newName.StartsWith("Crystal Peak"))
-                return new Assetz { Image = "crystal", Text = "Crystal Peak" };
+                return new RPCAssets { Image = "crystal", Text = "Crystal Peak" };
             if (newName.StartsWith("Deepnest"))
-                return new Assetz { Image = "deepnest", Text = "Deepnest" };
+                return new RPCAssets { Image = "deepnest", Text = "Deepnest" };
             if (newName.StartsWith("Godhome"))
-                return new Assetz { Image = "god", Text = "Godhome" };
+                return new RPCAssets { Image = "god", Text = "Godhome" };
 
 
 
 
 
             if (newName.StartsWith("Test of Teamwork"))
-                return new Assetz { Image = "hornet", Text = "Test of Teamwork (Modded Content)" };
+                return new RPCAssets { Image = "hornet", Text = "Test of Teamwork (Modded Content)" };
 
 
 
 
             else
-                return new Assetz { Image = "", Text = "" };
+                return new RPCAssets { Image = "", Text = "" };
         }
 
         /// <summary>
@@ -1196,7 +1194,7 @@ namespace HollowKnightDRPC
         }
     }
 
-    public struct Assetz
+    public struct RPCAssets
     {
         public string Image;
         public string Text;
