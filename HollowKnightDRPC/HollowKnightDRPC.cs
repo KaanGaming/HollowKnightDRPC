@@ -1,25 +1,25 @@
-﻿using Modding;
-using UnityEngine;
-using System.Net;
-using System.Reflection;
-using System.IO;
+﻿using Discord;
+using Modding;
 using System;
-using System.Diagnostics;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using Discord;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
+using System.Reflection;
+using UnityEngine;
 
 namespace HollowKnightDRPC
 {
-    public partial class HollowKnightDRPC : Mod, IGlobalSettings<RPCGlobalSettings>
+    public partial class HollowKnightDRPC : Mod, IGlobalSettings<RPCGlobalSettings>, IMenuMod
     {
         public HollowKnightDRPC() : base("Hollow Knight Discord RPC")
         {
 
         }
+
+        public int takenHits = 0;
+        public int takenTotalHits = 0;
+
+        private static readonly FieldInfo DEATH_FI = typeof(EnemyDeathEffects).GetField("enemyDeathType", BindingFlags.NonPublic | BindingFlags.Instance);
 
         bool displayBossHP = false;
         List<(GameObject bossobj, int maxhp)> bosses = new List<(GameObject bossobj, int maxhp)>();
@@ -146,6 +146,7 @@ namespace HollowKnightDRPC
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += SceneChanged;
             ModHooks.SceneChanged += Locate;
             ModHooks.OnEnableEnemyHook += EnemySpawn;
+            ModHooks.AfterTakeDamageHook += AfterTakeDamageHook;
 
             rpc = discord.GetActivityManager();
 
@@ -157,9 +158,17 @@ namespace HollowKnightDRPC
             rpc.UpdateActivity(act, res => { });
         }
 
+        private int AfterTakeDamageHook(int hazardType, int damageAmount)
+        {
+            takenHits++;
+            takenTotalHits++;
+            return damageAmount;
+        }
+
         private void SceneChanged(UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
         {
             bosses.Clear();
+            takenHits = 0;
             displayBossHP = false;
             vkings = 0;
             vking_maxhp = 0;
@@ -205,6 +214,7 @@ namespace HollowKnightDRPC
         private void LoadGame(int id)
         {
             gamestart = DateTime.UtcNow;
+            takenTotalHits = 0;
         }
 
         private void Locate(string targetScene)
@@ -217,8 +227,6 @@ namespace HollowKnightDRPC
             SetRPCPlaying();
             discord.RunCallbacks();
         }
-
-        private static readonly FieldInfo DEATH_FI = typeof(EnemyDeathEffects).GetField("enemyDeathType", BindingFlags.NonPublic | BindingFlags.Instance);
     }
 
     public class RPCGlobalSettings
@@ -226,5 +234,17 @@ namespace HollowKnightDRPC
         public bool AlwaysShowCompletion = false;
         public bool ShowTotalSaveTime = false;
         public bool BossHPShowPercentage = true;
+
+        public bool CountTakenHits = false;
+        public bool ShowBossTimer = false;
+
+        public int StatsRow1 = 1;
+        public int StatsRow2 = 2;
+        public int StatsRow3 = 3;
+
+        public bool HideLocation = false;
+        public bool HideStats = false;
+        public bool HideEverything = false;
+        public bool HideAbsolutelyEverything = false;
     }
 }
