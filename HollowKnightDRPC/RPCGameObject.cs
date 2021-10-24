@@ -1,5 +1,4 @@
 ﻿#pragma warning disable IDE0051 // Remove unused private members
-using System;
 using UnityEngine;
 
 namespace HollowKnightDRPC
