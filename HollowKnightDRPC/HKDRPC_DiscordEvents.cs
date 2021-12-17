@@ -137,7 +137,7 @@ namespace HollowKnightDRPC
 
             if (ticksuntilcheck == 0)
             {
-                ticksuntilcheck = 60;
+                ticksuntilcheck = 2;
                 if (bosses.Count > 0)
                 {
                     displayBossHP = true;
