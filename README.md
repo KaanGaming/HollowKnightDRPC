@@ -33,7 +33,7 @@ First, download the Discord GameSDK from [here](https://discord.com/developers/d
 
 
 # How to use
-**THE MOD ONLY WORKS IF YOU HAVE DISCORD CLIENT OPEN! THE BROWSER VERSION OF DISCORD WON'T WORK AND YOUR RICH PRESENCE WILL NOT WORK.** If you are using this mod on 1.5, you can easily adjust the settings in Settings > Mods and find this mod's settings page. On 1.4.3.2, this option doesn't exist, but you can still change settings by finding the saves location and find this mod's global settings. Despite it being a JSON file, it's very easy to edit. You can use the notepad program to edit values. [The StatsRow may be complex, so I made a page about it so you can edit them to whatever you want without testing each value.](https://github.com/KaanGaming/HollowKnightDRPC/blob/main/StatsRowValues.md)
+**THE MOD ONLY WORKS IF YOU HAVE DISCORD CLIENT OPEN! THE BROWSER VERSION OF DISCORD WON'T WORK AND YOUR RICH PRESENCE WILL NOT WORK.** If you are using this mod on 1.5, you can easily adjust the settings in Settings > Mods and find this mod's settings page. On 1.4.3.2, this option doesn't exist, but you can still change settings by finding the saves location and find this mod's global settings. Despite it being a JSON file, it's very easy to edit. You can use the notepad program to edit values. [The StatsRow may be complex, so I made a page about it so you can edit them to whatever you want without testing each value.](https://github.com/KaanGaming/HollowKnightDRPC/blob/1.5-mapi-version/StatsRowValues.md)
 
 # Development Guide
 
