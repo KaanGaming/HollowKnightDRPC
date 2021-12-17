@@ -16,13 +16,16 @@ Mod made by __@KaanGaming#7447__ on Discord.
 If anything goes wrong, ask in [#modding-help](https://discord.com/channels/283467363729408000/462200562620825600) in the Hollow Knight's Discord server.
 
 Links that may or may not be useful:
+
 [Original README](https://github.com/KaanGaming/HollowKnightDRPC/blob/main/ModInstallerReadme.txt)
 
 # Installation Guide
 Use these if the mod can't do the auto-installation of Discord GameSDK.
 
 ✔ [Windows Guide](https://kaangaming.github.io/HollowKnightDRPC/guide/Guide.html)
+
 ✖ Mac Guide
+
 ✖ Linux/UNIX Guide 
 
 ### Vague guide on setting up mod for use
