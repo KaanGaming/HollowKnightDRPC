@@ -29,7 +29,7 @@ Use these if the mod can't do the auto-installation of Discord GameSDK.
 ✖ Linux/UNIX Guide 
 
 ### Vague guide on setting up mod for use
-First, download the Discord GameSDK from [here](https://discord.com/developers/docs/game-sdk/sdk-starter-guide). Open the .zip file, and try to find the `lib` folder. Inside there should be `x86` and `x86_64` folders. Find the `Plugins` folder in your Hollow Knight installation. Copy the `x86` and `x86_64` into `Plugins` folder. If there are already folders with the same names, copy the insides of `x86` from the .zip to there, and the same thing for `x86_64`.
+First, download the Discord GameSDK from [here](https://discord.com/developers/docs/game-sdk/sdk-starter-guide). Open the .zip file, and try to find the `lib` folder. Inside there should be `x86` and `x86_64` folders. Find the `Plugins` folder in your Hollow Knight installation. Your Hollow Knight game files can be found in (Windows: `C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\`, Mac: `~/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/`, Linux: `~/.local/share/Steam/steamapps/common/Hollow Knight/`). Copy the `x86` and `x86_64` into `Plugins` folder. If there are already folders with the same names, copy the insides of `x86` from the .zip to there, and the same thing for `x86_64`.
 
 
 # How to use
