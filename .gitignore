@@ -13,13 +13,15 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# 1.5 Modding API
+ModdingApi1.5/*.dll
+ModdingApi1.5/*.xml
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -332,3 +334,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# GameSDK libraries
+./HollowKnightDRPC/GameSDK_Libraries/x86/*.*
+./HollowKnightDRPC/GameSDK_Libraries/x86_64/*.*

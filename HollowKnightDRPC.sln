@@ -5,6 +5,15 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollowKnightDRPC", "HollowKnightDRPC\HollowKnightDRPC.csproj", "{7C9A5DC1-DD29-4103-BDCF-6A449820B1E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF028EA6-9372-4B64-AF51-30CEFB0C974D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
+		ModInstallerReadme.txt = ModInstallerReadme.txt
+		README.md = README.md
+		StatsRowValues.md = StatsRowValues.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,5 @@
+﻿*.dll
+*.dll.lib
+*.bundle
+*.dylib
+*.so
