@@ -146,6 +146,8 @@ namespace HollowKnightDRPC
                     {
                         if (boss == null) continue;
 
+                        if (boss.name == "White Palace Fly") continue;
+
                         if (boss.name == "Oro" || boss.name == "Mato") displayBossHPText = false;
                         if (boss.name == "Lobster" || boss.name == "Lancer") displayBossHPText = false;
 
