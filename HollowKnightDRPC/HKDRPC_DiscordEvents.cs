@@ -191,6 +191,7 @@ namespace HollowKnightDRPC
                 {
                     if (boss == null) continue;
 
+                    // Due to wingmoulds having very high HP and being unkillable, ignore this while showing the Boss HPs.
                     if (boss.name == "White Palace Fly") continue;
 
                     if (existingBosses.Exists(a => a == boss.name)) continue;
