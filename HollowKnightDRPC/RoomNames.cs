@@ -897,7 +897,7 @@ namespace HollowKnightDRPC
             if (scene == "GG_Mighty_Zote")
                 return "Godhome - The Eternal Ordeal";
             if (scene == "GG_Spa")
-                return "Godhome - Pantheon SPA";
+                return "Godhome - Pantheon Hot Spring";
             if (scene == "GG_Unlock_Wastes")
                 return "Godhome - Godtuner";
             if (scene == "GG_Workshop")
@@ -1053,8 +1053,23 @@ namespace HollowKnightDRPC
             else return scene;
         }
 
+        private static string _forceasset = null;
+        public static string ForceSmallAsset { get => _forceasset; set => _forceasset = value; }
+
         public static RPCAssets GetSmallAsset(string newName)
         {
+            if (_forceasset != null)
+                newName = _forceasset;
+
+            if (newName.Contains("Godhome") && HoGUtil.InHoGBoss)
+            {
+                return new RPCAssets
+                {
+                    Image = HoGUtil.InHoGBoss ? (HoGUtil.Difficulty == 2 ? "radiant" : HoGUtil.Difficulty == 1 ? "ascended" : "attuned") : "god",
+                    Text = HoGUtil.InHoGBoss ? (HoGUtil.Difficulty == 2 ? "Radiant" : HoGUtil.Difficulty == 1 ? "Ascended" : "Attuned") : "Godhome"
+                };
+            }
+
             if (newName == "Greenpath - Sheo the Painter")
                 return new RPCAssets { Image = "sheo", Text = "Greenpath" };
             if (newName == "Fog Canyon - Teacher's Archives Entrance")
@@ -1119,7 +1134,10 @@ namespace HollowKnightDRPC
             if (newName.StartsWith("Deepnest"))
                 return new RPCAssets { Image = "deepnest", Text = "Deepnest" };
             if (newName.StartsWith("Godhome"))
-                return new RPCAssets { Image = "god", Text = "Godhome" };
+                return new RPCAssets {
+                    Image = HoGUtil.InHoGBoss ? (HoGUtil.Difficulty == 2 ? "radiant" : HoGUtil.Difficulty == 1 ? "ascended" : "attuned") : "god",
+                    Text = HoGUtil.InHoGBoss ? (HoGUtil.Difficulty == 2 ? "Radiant" : HoGUtil.Difficulty == 1 ? "Ascended" : "Attuned") : "Godhome"
+                };
 
 
 

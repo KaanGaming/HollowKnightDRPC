@@ -8,7 +8,8 @@ namespace HollowKnightDRPC
 {
     public partial class HollowKnightDRPC
     {
-        Stopwatch bosstimer;
+        float panthbosswitcheroo = 0.0f;
+        bool panthbossshowboss = false;
 
         byte ticksuntilcheck = 60;
         bool displayBossHPText = true;
@@ -50,12 +51,42 @@ namespace HollowKnightDRPC
         bool waslostctrl = false;
         public void PlayerRPC()
         {
+            RoomNames.ForceSmallAsset = null;
+
             TimeSpan timeplayed = new TimeSpan(0, 0, Convert.ToInt32(GameManager.instance.PlayTime));
 
             GameMode gm = PlayerData.instance.permadeathMode > 0 ? GameMode.SteelSoul :
                 PlayerData.instance.bossRushMode ? GameMode.Godseeker : GameMode.Normal;
 
             bool bossperc = Settings.BossHPShowPercentage;
+
+            panthbosswitcheroo += Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                LogDebug("--------------------------");
+                LogDebug("PANTHEON DEBUG");
+                if (PantheonUtil.InPantheon)
+                {
+                    LogDebug($"PANTHEON: {PantheonUtil.PantheonID}");
+                    LogDebug($"BOSS: {PantheonUtil.RealCBoss} / {PantheonUtil.RealBossCount}");
+                    LogDebug($"BINDINGS {(PantheonUtil.NailBind ? $"NAIL" : "")} {(PantheonUtil.SoulBind ? "SOUL" : "")} {(PantheonUtil.ShellBind ? "SHELL" : "")} {(PantheonUtil.CharmBind ? "CHARM" : "")}");
+                    LogDebug($"MAX HP  {PantheonUtil.MaxHP}");
+                    LogDebug(PantheonUtil.AllBind ? "ALL BINDINGS" : PantheonUtil.AnyBind ? "AT LEAST ONE BINDING" : "NO BINDINGS");
+                }
+                LogDebug("........");
+                LogDebug("BOSS DEBUG");
+                if (HoGUtil.InBoss)
+                {
+                    int diff = HoGUtil.Difficulty;
+                    LogDebug("BOSS DIFFICULTY: " + (diff == 2 ? "RADIANT" : diff == 1 ? "ASCENDED" : "ATTUNED"));
+                    foreach (var boss in HoGUtil.GGBosses)
+                    {
+                        LogDebug("BOSSES:");
+                        LogDebug($"{boss.GOName}: {boss.HP.cur} / {boss.HP.max}");
+                    }
+                }
+            }
 
             if (Settings.CountTakenHits)
             {
@@ -77,10 +108,41 @@ namespace HollowKnightDRPC
             int geo = PlayerData.instance.geo;
             if (!Settings.HideEverything)
             {
-                act.Details =
-                (paused ? "(Paused) " : "") +
-                ((Settings.ShowTotalSaveTime && !paused) ? $"({Math.Floor(timeplayed.TotalHours).ToString().PadLeft(2, '0')}:{timeplayed.Minutes.ToString().PadLeft(2, '0')}) " : "")
-                + (Settings.HideLocation ? "" : RoomNames.GetRoomName(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name));
+                if (PantheonUtil.InPantheon)
+                {
+                    RoomNames.ForceSmallAsset = "Godhome";
+
+                    if (panthbosswitcheroo > 4.0f)
+                    {
+                        panthbosswitcheroo = 0.0f;
+                        panthbossshowboss = !panthbossshowboss;
+                    }
+
+                    if (panthbossshowboss)
+                    {
+                        act.Details =
+                        (paused ? "(Paused) " : "") +
+                        ((Settings.ShowTotalSaveTime && !paused) ? $"({Math.Floor(timeplayed.TotalHours).ToString().PadLeft(2, '0')}:{timeplayed.Minutes.ToString().PadLeft(2, '0')}) " : "")
+                        + $"Pantheon {(PantheonUtil.AnyBind ? PantheonUtil.PantheonID : PantheonUtil.PantheonName)}"
+                        + (PantheonUtil.AnyBind ? PantheonUtil.AllBind ? " (All Bindings)" : " (" +
+                            (PantheonUtil.NailBind ? "Nail " : "") + (PantheonUtil.ShellBind ? "Shell " : "") +
+                            (PantheonUtil.SoulBind ? "Soul " : "") + (PantheonUtil.CharmBind ? "Charm " : "") + "Binding)" : "");
+                    }
+                    else
+                    {
+                        act.Details =
+                            (paused ? "(Paused) " : "") +
+                            ((Settings.ShowTotalSaveTime && !paused) ? $"({Math.Floor(timeplayed.TotalHours).ToString().PadLeft(2, '0')}:{timeplayed.Minutes.ToString().PadLeft(2, '0')}) " : "")
+                            + (Settings.HideLocation ? "" : RoomNames.GetRoomName(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name));
+                    }
+                }
+                if (!PantheonUtil.InPantheon)
+                {
+                    act.Details =
+                        (paused ? "(Paused) " : "") +
+                        ((Settings.ShowTotalSaveTime && !paused) ? $"({Math.Floor(timeplayed.TotalHours).ToString().PadLeft(2, '0')}:{timeplayed.Minutes.ToString().PadLeft(2, '0')}) " : "")
+                        + (Settings.HideLocation ? "" : RoomNames.GetRoomName(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name));
+                }
             }
             else
             {
@@ -165,12 +227,16 @@ namespace HollowKnightDRPC
                 }
             }
 
-
-
             if (displayBossHP && !Settings.HideEverything)
             {
                 #region displayBossHP
-                act.State += displayBossHPText ? "Boss HP:" : "";
+                if (PantheonUtil.InPantheon)
+                {
+                    act.State += displayBossHPText ? $"Boss {PantheonUtil.CurrentBoss}/{PantheonUtil.BossCount}:" : "";
+                }
+                else
+                    act.State += displayBossHPText ? "Boss HP:" : "";
+
                 // Multibossstate can be different values, meaning different things:
                 // 0: show all boss health individually
                 // 1: add boss health together (mantis lords, watcher knights, oblobbles)
@@ -264,9 +330,33 @@ namespace HollowKnightDRPC
             }
             else if (!Settings.HideEverything && !Settings.HideStats)
             {
-                act.State += GetStatById(Settings.StatsRow2, 1);
+                if (PantheonUtil.InPantheon)
+                {
+                    switch (PantheonUtil.CurrentBoss)
+                    {
+                        case -1:
+                            act.State += " - Bench";
+                            break;
+                        case -2:
+                            act.State += " - NPC";
+                            break;
+                        case -3:
+                            act.State += " - Pantheon Ending";
+                            break;
+                        case -4:
+                            act.State += " - ?????";
+                            break;
+                        default:
 
-                act.State += GetStatById(Settings.StatsRow3, 1);
+                            break;
+                    }
+                }
+                else
+                {
+                    act.State += GetStatById(Settings.StatsRow2, 1);
+
+                    act.State += GetStatById(Settings.StatsRow3, 1);
+                }
             }
         }
 
@@ -309,13 +399,16 @@ namespace HollowKnightDRPC
             var kidols = PlayerData.instance.trinket3;
             var æggs = PlayerData.instance.trinket4;
 
+            bool hasbluehp = PlayerData.instance.healthBlue > 0;
+
             var hp = PlayerData.instance.health;
+            var maxhp = PantheonUtil.InPantheon ? PantheonUtil.MaxHP : PlayerData.instance.maxHealth;
             var masks = PlayerData.instance.maxHealth;
             if (id == 0) /* NONE */ return "";
             else if (id == 1) // HP
             {
                 if (!PlayerData.instance.equippedCharm_27)
-                    return (includeDash == 1 ? " - " : "") + (hp + PlayerData.instance.healthBlue) + "/" + masks + " HP" + (includeDash == 2 ? " - " : "");
+                    return (includeDash == 1 ? " - " : "") + hp + (hasbluehp ? "+" + PlayerData.instance.healthBlue : "") + "/" + maxhp + " HP" + (includeDash == 2 ? " - " : "");
                 else
                     return (includeDash == 1 ? " - " : "") + (hp + PlayerData.instance.healthBlue) + " HP" + (includeDash == 2 ? " - " : "");
             }

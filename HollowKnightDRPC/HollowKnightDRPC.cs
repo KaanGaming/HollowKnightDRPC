@@ -11,9 +11,11 @@ namespace HollowKnightDRPC
 {
     public partial class HollowKnightDRPC : Mod, IGlobalSettings<RPCGlobalSettings>, IMenuMod
     {
+        internal static HollowKnightDRPC Instance;
+
         public HollowKnightDRPC() : base("Hollow Knight Discord RPC")
         {
-
+            Instance = this;
         }
 
         public int takenHits = 0;
@@ -43,7 +45,7 @@ namespace HollowKnightDRPC
 
         public override string GetVersion()
         {
-            return "1.0.0";
+            return "1.1.0";
         }
 
         byte[] GetEmbeddedResource(string resourceName)
