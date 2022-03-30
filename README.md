@@ -3,7 +3,6 @@
 
 
 # Hollow Knight Discord Rich Presence
-###### ...or Discord Rich Presence for Hollow Knight or HollowKnightDRPC, call it whatever you want.
 
 ---
 
@@ -12,15 +11,15 @@ This mod adds Discord Rich Presence to your profile. Rich Presence is a detailed
 ![Example](https://i.ibb.co/421PW5x/resim-2021-12-17-191656.png)
 ###### Even though the text may be cut off, it can be seen in full by hovering over your mouse on the cut off text, or view the full profile.
 
-Mod made by __@KaanGaming#7447__ on Discord.
+This mod was made by __@KaanGaming#7447__ on Discord.
 If anything goes wrong, ask in [#modding-help](https://discord.com/channels/283467363729408000/462200562620825600) in the Hollow Knight's Discord server.
 
-Links that may or may not be useful:
+Other links that may be useful:
 
 [Original README](https://github.com/KaanGaming/HollowKnightDRPC/blob/main/ModInstallerReadme.txt)
 
 # Installation Guide
-Use these if the mod can't do the auto-installation of Discord GameSDK.
+Use these if the mod couldn't do the auto-installation of Discord GameSDK.
 
 ✔ [Windows Guide](https://kaangaming.github.io/HollowKnightDRPC/guide/Guide.html)
 
@@ -29,6 +28,8 @@ Use these if the mod can't do the auto-installation of Discord GameSDK.
 ✖ Linux/UNIX Guide 
 
 ### Vague guide on setting up mod for use
+(The mod was updated to fix the auto-installation issue for Mac OS X and Linux users. If you do still encounter problems, consult to this guide.)
+
 First, download the Discord GameSDK from [here](https://discord.com/developers/docs/game-sdk/sdk-starter-guide). Open the .zip file, and try to find the `lib` folder. Inside there should be `x86` and `x86_64` folders. Find the `Plugins` folder in your Hollow Knight installation. Your Hollow Knight game files can be found in (Windows: `C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\`, Mac: `~/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/`, Linux: `~/.local/share/Steam/steamapps/common/Hollow Knight/`). Copy the `x86` and `x86_64` into `Plugins` folder. If there are already folders with the same names, copy the insides of `x86` from the .zip to there, and the same thing for `x86_64`.
 
 
@@ -43,7 +44,7 @@ Steps:
 2. *(Optional)* If none of the dependencies work (if a lot of `using` lines start throwing errors in the project) then your Hollow Knight installation might be in a different location, or you might be using a different OS. If that's the case, try fixing the location of your Hollow Knight installation in the .csproj file, and try to reload the project.
 
 ### Build the project
-You can navigate to the root of the repository, and do `dotnet build` on your command prompt program. This will create the `Exports` file in the project directory, and it will update the mod's output files in your `Mods` folder found inside your Hollow Knight installation.
+When you build the project, the build result gets pasted into the Mods directory in Hollow Knight. To export the mod, the export location is usually located in `E:\Github_Projects\\__Exports\HollowKnightDRPC`. The export folder contains the .ZIP for Scarab to unpack and load into the Mods folder (and to link it to the modlinks), a .DLL file of the mod, and SHA.txt which has the SHA256 hash of the .ZIP (for modlinks).
 
 ---
 
