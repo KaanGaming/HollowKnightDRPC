@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup>
     <RootNamespace>HollowKnightDRPC</RootNamespace>
     <AssemblyName>HollowKnightDRPC</AssemblyName>
     <TargetFramework>net472</TargetFramework>
@@ -314,5 +317,17 @@
     <None Include=".gitignore" />
     <None Include="ReadMe.md" />
     <None Include="Resources\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GameSDK_Libraries\x86\discord_game_sdk_86.dll.lib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.bundle" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dll.lib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dylib" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.so" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="GameSDK_Libraries\x86\discord_game_sdk_86.dll" />
+    <EmbeddedResource Include="GameSDK_Libraries\x86_64\discord_game_sdk.dll" />
   </ItemGroup>
 </Project>
