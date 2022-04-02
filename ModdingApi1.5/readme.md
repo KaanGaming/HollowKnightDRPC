@@ -1,1 +1,0 @@
-When compiling, put [1.5 modding api](https://nightly.link/hk-modding/api/workflows/dotnet.yaml/master/ModdingApiWin.zip) ([for UNIX](https://nightly.link/hk-modding/api/workflows/dotnet.yaml/master/ModdingApiUnix.zip)) here

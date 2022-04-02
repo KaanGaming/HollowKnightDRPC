@@ -74,16 +74,17 @@ namespace HollowKnightDRPC
         #region Functions used inside Initialize()
         public bool CheckIntegrity()
         {
-            LogDebug("Checking integrity...");
+            Log("Checking integrity...");
 
             bool integrity = true;
 
             string modp = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string plugins = $@"{modp}/../../../Plugins";
+            if (SystemInfo.operatingSystemFamily == OperatingSystemFamily.MacOSX)
+                plugins = $@"{modp}/../../../../../Plugins";
             string plugind = Path.GetFullPath(plugins);
 
-            LogDebug("Loading DLLs...");
-            LogDebug($"Plugins path {plugind}");
+            Log($"Plugins path {plugind}");
 
             if (!File.Exists($"{plugins}/x86/discord_game_sdk.dll")) integrity = false;
             if (!File.Exists($"{plugins}/x86/discord_game_sdk.dll.lib")) integrity = false;
@@ -102,10 +103,12 @@ namespace HollowKnightDRPC
         {
             string modp = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string plugins = $@"{modp}/../../../Plugins";
+            if (SystemInfo.operatingSystemFamily == OperatingSystemFamily.MacOSX)
+                plugins = $@"{modp}/../../../../../Plugins";
             string plugind = Path.GetFullPath(plugins);
 
-            LogDebug("Loading DLLs...");
-            LogDebug($"Plugins path {plugind}");
+            Log("Loading DLLs...");
+            Log($"Plugins path {plugind}");
 
             var assembly = Assembly.GetExecutingAssembly();
             string sdk86dll = assembly.GetManifestResourceNames()
