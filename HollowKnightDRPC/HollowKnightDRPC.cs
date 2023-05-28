@@ -43,9 +43,16 @@ namespace HollowKnightDRPC
 
         public GameObject RPCobject;
 
+        public const string VERSION = "1.1.1";
+
         public override string GetVersion()
         {
-            return "1.1.1";
+            #if DEBUG
+            Assembly asm = Assembly.GetExecutingAssembly();
+            Version ver = asm.GetName().Version;
+            return $"Build {VERSION}.{ver.Build}.{ver.Revision}";
+            #endif
+            return VERSION;
         }
 
         byte[] GetEmbeddedResource(string resourceName)

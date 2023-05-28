@@ -41,7 +41,7 @@ First, download the Discord GameSDK from [here](https://discord.com/developers/d
 Steps:
 ### Project setup
 1. Get the Discord GameSDK (found [here](https://discord.com/developers/docs/game-sdk/sdk-starter-guide)) and go inside the `lib` folder, then extract the contents of `x86` and `x86_64` into `HollowKnightDRPC\GameSDK_Libraries` (there are `x86` and `x86_64` folders inside there as well so extract the respective folders into there)
-2. *(Optional)* If none of the dependencies work (if a lot of `using` lines start throwing errors in the project) then your Hollow Knight installation might be in a different location, or you might be using a different OS. If that's the case, try fixing the location of your Hollow Knight installation in the .csproj file, and try to reload the project.
+2. Create a symlink folder that leads to the Managed folder inside Hollow Knight's game files. This location can vary depending on what operating system you're running.
 
 ### Build the project
 When you build the project, the build result gets pasted into the Mods directory in Hollow Knight. To export the mod, the export location is usually located in `E:\Github_Projects\\__Exports\HollowKnightDRPC`. The export folder contains the .ZIP for Scarab to unpack and load into the Mods folder (and to link it to the modlinks), a .DLL file of the mod, and SHA.txt which has the SHA256 hash of the .ZIP (for modlinks).
